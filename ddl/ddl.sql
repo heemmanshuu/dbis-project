@@ -103,7 +103,7 @@ create table tr_comp (
 );
 
 create table tr_coach (
-    trcomp_id int,
+    trcomp_id int generated always as identity,
     coach_id int,
 
     primary key(trcomp_id, coach_id),

@@ -119,8 +119,8 @@ INSERT into pf_avbl values('LTT', 2, 0);
 INSERT into pf_avbl values('LTT', 3, 1);
 INSERT into pf_avbl values('LTT', 4, 1);
 
-INSERT into tr_comp values(1, 18519, date '2022-04-04', 5, 16789, 12);
-INSERT into tr_comp values(2, 11020, date '2022-04-03', 5, 58843, 11);
+INSERT into tr_comp values( 18519, date '2022-04-04', 5, 16789, 12);
+INSERT into tr_comp values( 11020, date '2022-04-03', 5, 58843, 11);
 -- INSERT into tr_comp values();
 
 INSERT into tr_coach values(1, 590);

@@ -12,7 +12,8 @@ update a train:
     update train set tr_name = "", start = "", dest = "", tr_type = "" where tr_no = "12345";
 
 2) 
-
+assigning coaches and engines:
+    
 
 
 3)
@@ -28,5 +29,8 @@ delete a station:
 
 update a station:
     update train set st_name = "", platforms = "" where st_code = "LTT";
+
+Creating a route:
+    INSERT into tr_comp 
 
 
