@@ -72,12 +72,12 @@ create table employee (
     primary key(emp_id)
 );
 
-create table berth (
-    berth_no int,
-    berth_type text not null,
+-- create table berth (
+--     berth_no int,
+--     berth_type text not null,
 
-    primary key (berth_no)
-);
+--     primary key (berth_no)
+-- );
 
 create table pf_avbl(
     st_code text,
@@ -94,6 +94,7 @@ create table tr_comp (
     date date,
     total_coaches int not null,
     engine_id int,
+    total_stations int not null,
     primary key(trcomp_id),
 
     Foreign key(tr_no) references train on delete cascade,
@@ -110,24 +111,24 @@ create table tr_coach (
     Foreign key(coach_id) references coach on delete cascade
 );
 
-create table tr_route (
-    trroute_id int,
-    train_id int,
-    date date,
-    total_stations int not null,
+-- create table tr_route (
+--     trroute_id int,
+--     train_id int,
+--     date date,
+--     total_stations int not null,
 
-    primary key(trroute_id),
-    Foreign key(date) references date on delete cascade,
-    Foreign key(train_id) references train on delete cascade
-);
+--     primary key(trroute_id),
+--     Foreign key(date) references date on delete cascade,
+--     Foreign key(train_id) references train on delete cascade
+-- );
 
 create table route_stations (
-    trroute_id int,
+    trcomp_id int,
     st_code text,
     time timestamp not null,
 
-    primary key(trroute_id, st_code),
-    Foreign key(trroute_id) references tr_route on delete cascade,
+    primary key(trcomp_id, st_code),
+    Foreign key(trcomp_id) references tr_comp on delete cascade,
     Foreign key(st_code) references station on delete cascade
 );
 
@@ -137,6 +138,7 @@ create table booking (
     date date,
     coach_id int,
     berth_no int,
+    berth_type text not null,
     price int not null,
     ticket_category text not null,
 
@@ -144,20 +146,16 @@ create table booking (
 
     Foreign key(train_id) references train on delete cascade,
     Foreign key(coach_id) references coach on delete cascade,
-    Foreign key(berth_no) references berth on delete cascade,
     Foreign key(date) references date on delete cascade
 
 );
 
 create table tr_emp (
-    train_id int,
-    date date,
+    trcomp_id int,
     emp_id int,
 
-    primary key(train_id, date),
-    Foreign key(train_id) references train on delete cascade,
+    primary key(trcomp_id),
     Foreign key(emp_id) references employee on delete cascade,
-    Foreign key(date) references date on delete cascade
 
 );
 
