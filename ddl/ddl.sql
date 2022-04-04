@@ -1,19 +1,19 @@
+-- DROP TABLE IF EXISTS platform;
+DROP TABLE IF EXISTS st_emp;
+DROP TABLE IF EXISTS tr_emp;
+DROP TABLE IF EXISTS booking;
+DROP TABLE IF EXISTS route_stations;
+DROP TABLE IF EXISTS tr_route;
+DROP TABLE IF EXISTS tr_coach;
+DROP TABLE IF EXISTS tr_comp;
+DROP TABLE IF EXISTS pf_avbl;
+DROP TABLE IF EXISTS berth;
+DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS date;
+DROP TABLE IF EXISTS engine;
+DROP TABLE IF EXISTS coach;
 DROP TABLE IF EXISTS train;
 DROP TABLE IF EXISTS station;
-DROP TABLE IF EXISTS coach;
-DROP TABLE IF EXISTS engine;
-DROP TABLE IF EXISTS date;
-DROP TABLE IF EXISTS employee;
-DROP TABLE IF EXISTS berth;
--- DROP TABLE IF EXISTS platform;
-DROP TABLE IF EXISTS tr_comp;
-DROP TABLE IF EXISTS tr_route;
-DROP TABLE IF EXISTS booking;
-DROP TABLE IF EXISTS tr_emp;
-DROP TABLE IF EXISTS st_emp;
-DROP TABLE IF EXISTS pf_avbl;
-DROP TABLE IF EXISTS tr_coach;
-DROP TABLE IF EXISTS route_stations;
 
 CREATE TABLE station (
     st_code TEXT check (st_code = upper(st_code)),
@@ -82,7 +82,7 @@ create table berth (
 );
 
 create table pf_avbl(
-    st_code int,
+    st_code text,
     pf_no int,
     pf_status int check (pf_status = 0 or pf_status = 1 or pf_status = null),
 
@@ -125,7 +125,7 @@ create table tr_route (
 
 create table route_stations (
     trroute_id int,
-    st_code int,
+    st_code text,
     time timestamp not null,
 
     primary key(trroute_id, st_code),
@@ -142,11 +142,36 @@ create table booking (
     price int not null,
     ticket_category text not null,
 
-    Foreign key(train_id) references train on delete cascade
-    Foreign key(coach_id) references coach on delete cascade
-    Foreign key(berth_no) references berth on delete cascade
+    primary key(pnr_no),
+
+    Foreign key(train_id) references train on delete cascade,
+    Foreign key(coach_id) references coach on delete cascade,
+    Foreign key(berth_no) references berth on delete cascade,
+    Foreign key(date) references date on delete cascade
+
+);
+
+create table tr_emp (
+    train_id int,
+    date date,
+    emp_id int,
+
+    primary key(train_id, date),
+    Foreign key(train_id) references train on delete cascade,
+    Foreign key(emp_id) references employee on delete cascade,
+    Foreign key(date) references date on delete cascade
+
+);
+
+
+create table st_emp (
+    st_code text,
+    date date,
+    emp_id int,
+
+    primary key (st_code, date),
+    Foreign key(emp_id) references employee on delete cascade,
     Foreign key(date) references date on delete cascade,
+    Foreign key(st_code) references station on delete cascade
 
-
-)
-
+);
