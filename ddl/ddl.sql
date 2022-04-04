@@ -29,8 +29,6 @@ create table train (
     tr_name VARCHAR,
     start text,
     dest text,
-    start_time timestamp not null,
-    dest_time timestamp not null,
     tr_type VARCHAR check(tr_type = 'weekly' or tr_type = 'daily' or tr_type = 'special' or tr_type = null),
 
     Primary key (tr_no),

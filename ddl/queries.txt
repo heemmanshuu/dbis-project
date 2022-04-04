@@ -1,0 +1,32 @@
+1) 
+getting basic details of a train:
+    select * from train where tr_no = "12345";
+
+adding a train :
+    INSERT into train values(18519, ' LTT SPL', '', 'LTT', 'special');
+
+delete a train:
+    delete from train where tr_no = "12345";
+
+update a train:
+    update train set tr_name = "", start = "", dest = "", tr_type = "" where tr_no = "12345";
+
+2) 
+
+
+
+3)
+
+getting basic details of station:
+    select * from station where st_code = "LTT";
+
+adding a station :
+    INSERT into station values('LTT', 'Lokamanya Tilak Terminus', 'Mumbai', 10);
+
+delete a station:
+    delete from station where st_code = "LTT";
+
+update a station:
+    update train set st_name = "", platforms = "" where st_code = "LTT";
+
+
