@@ -3,11 +3,11 @@ DROP TABLE IF EXISTS st_emp;
 DROP TABLE IF EXISTS tr_emp;
 DROP TABLE IF EXISTS booking;
 DROP TABLE IF EXISTS route_stations;
-DROP TABLE IF EXISTS tr_route;
+-- DROP TABLE IF EXISTS tr_route;
 DROP TABLE IF EXISTS tr_coach;
 DROP TABLE IF EXISTS tr_comp;
 DROP TABLE IF EXISTS pf_avbl;
-DROP TABLE IF EXISTS berth;
+-- DROP TABLE IF EXISTS berth;
 DROP TABLE IF EXISTS employee;
 DROP TABLE IF EXISTS date;
 DROP TABLE IF EXISTS engine;
@@ -33,7 +33,6 @@ create table train (
 
     Primary key (tr_no),
     check(start <> dest),
-    check(start_time < dest_time),
     Foreign key(start) references station on DELETE cascade,
     Foreign key(dest) references station on delete cascade
 
@@ -155,8 +154,7 @@ create table tr_emp (
     emp_id int,
 
     primary key(trcomp_id),
-    Foreign key(emp_id) references employee on delete cascade,
-
+    Foreign key(emp_id) references employee on delete cascade
 );
 
 
