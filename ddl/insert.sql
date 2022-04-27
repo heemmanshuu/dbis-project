@@ -4,10 +4,10 @@ DELETE FROM coach;
 DELETE FROM engine;
 DELETE FROM date;
 DELETE FROM employee;
-DELETE FROM berth;
+-- DELETE FROM berth;
 -- DELETE FROM platform;
 DELETE FROM tr_comp;
-DELETE FROM tr_route;
+-- DELETE FROM tr_route;
 DELETE FROM booking;
 DELETE FROM tr_emp;
 DELETE FROM st_emp;
@@ -58,7 +58,7 @@ INSERT into engine values(58843, 'diesel');
 
 INSERT into date values(date '2022-04-03', 'Sun');
 INSERT into date values(date '2022-04-04', 'Mon');
-INSERT into date values(date '2022-04-05', 'TUe');
+INSERT into date values(date '2022-04-05', 'Tue');
 -- INSERT into date values();
 
 INSERT into employee values(1, 'subba rao', 38, 'pilot', 40000);
@@ -119,20 +119,20 @@ INSERT into pf_avbl values('LTT', 2, 0);
 INSERT into pf_avbl values('LTT', 3, 1);
 INSERT into pf_avbl values('LTT', 4, 1);
 
-INSERT into tr_comp values( 18519, date '2022-04-04', 5, 16789, 12);
-INSERT into tr_comp values( 11020, date '2022-04-03', 5, 58843, 11);
+INSERT into tr_comp values(1, 18519, date '2022-04-04', 5, 16789, 12);
+INSERT into tr_comp values(2, 11020, date '2022-04-03', 5, 58843, 11);
 -- INSERT into tr_comp values();
 
-INSERT into tr_coach values(1, 590);
-INSERT into tr_coach values(1, 591);
-INSERT into tr_coach values(1, 592);
-INSERT into tr_coach values(1, 593);
-INSERT into tr_coach values(1, 594);
-INSERT into tr_coach values(2, 588);
-INSERT into tr_coach values(2, 597);
-INSERT into tr_coach values(2, 598);
-INSERT into tr_coach values(2, 620);
-INSERT into tr_coach values(2, 630);
+INSERT into tr_coach values(1, 590, 1);
+INSERT into tr_coach values(1, 591, 2);
+INSERT into tr_coach values(1, 592, 3);
+INSERT into tr_coach values(1, 593, 4);
+INSERT into tr_coach values(1, 594, 5);
+INSERT into tr_coach values(2, 588, 1);
+INSERT into tr_coach values(2, 597, 2);
+INSERT into tr_coach values(2, 598, 3);
+INSERT into tr_coach values(2, 620, 4);
+INSERT into tr_coach values(2, 630, 5);
 
 -- INSERT into tr_route values(1);
 -- INSERT into tr_route values(2);

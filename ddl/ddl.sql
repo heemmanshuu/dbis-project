@@ -40,7 +40,7 @@ create table train (
 
 create table coach (
     coach_id int,
-    total_seats int not null,
+    total_seats int not null check (total_seats <= 120),
     coach_model text,
     coach_type text,
 
@@ -88,7 +88,7 @@ create table pf_avbl(
 );
 
 create table tr_comp (
-    trcomp_id int,
+    trcomp_id int,-- generated always as identity,
     tr_no int,
     date date,
     total_coaches int not null,
@@ -102,8 +102,9 @@ create table tr_comp (
 );
 
 create table tr_coach (
-    trcomp_id int generated always as identity,
+    trcomp_id int,
     coach_id int,
+    coach_no int,
 
     primary key(trcomp_id, coach_id),
     Foreign key(trcomp_id) references tr_comp on delete cascade,
@@ -133,7 +134,7 @@ create table route_stations (
 
 create table booking (
     pnr_no int,
-    train_id int,
+    tr_no int,
     date date,
     coach_id int,
     berth_no int,
@@ -143,7 +144,7 @@ create table booking (
 
     primary key(pnr_no),
 
-    Foreign key(train_id) references train on delete cascade,
+    Foreign key(tr_no) references train on delete cascade,
     Foreign key(coach_id) references coach on delete cascade,
     Foreign key(date) references date on delete cascade
 
@@ -153,7 +154,7 @@ create table tr_emp (
     trcomp_id int,
     emp_id int,
 
-    primary key(trcomp_id),
+    primary key(trcomp_id, emp_id),
     Foreign key(emp_id) references employee on delete cascade
 );
 
@@ -169,3 +170,4 @@ create table st_emp (
     Foreign key(st_code) references station on delete cascade
 
 );
+

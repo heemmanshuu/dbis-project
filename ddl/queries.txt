@@ -14,6 +14,14 @@ update a train:
 2) 
 assigning coaches and engines:
     
+adding a coach :
+    INSERT into coach values(588, 72, 'f1', '2S');
+delete a coach:
+    delete from coach where coach_id = 588;   
+adding a engine :
+    INSERT into engine values(16789, 'electric');
+delete a coach:
+    delete from engine where engine_id = 16789;
 
 
 3)
@@ -31,6 +39,33 @@ update a station:
     update train set st_name = "", platforms = "" where st_code = "LTT";
 
 Creating a route:
-    INSERT into tr_comp 
+    INSERT into tr_comp values(1, 185199, date '2022-04-04', 5, 16789, 12);
+Insert a coach to train route:
+    INSERT into tr_coach values(1, 590);
+    INSERT into tr_coach values(1, 591);
+
+4) Seat availability in train on a date:
+
+    -- have to return seat no, coach no, price, what about start dest??
+    -- for admin purposes
+    -- enforce max total seats
+    select seat, coach_id, total_seats from (
+	select coach.coach_id, total_seats from (
+	select coach_id from tr_comp join tr_coach on tr_no = 18519 and date = '2022-04-04' and tr_coach.trcomp_id = tr_comp.trcomp_id 
+)
+as coaches 
+join coach on coaches.coach_id = coach.coach_id
+) as coachinfo
+join(
+		with recursive CTE as  
+		(  
+			select 1 seat  
+			union all  
+			select seat +1 from CTE where seat<=120  
+		) select * from CTE
+	) as seats on seat<=total_seats and seat not in (select berth_no from booking where tr_no = 18519 and date = '2022-04-04')
+
+
+
 
 
