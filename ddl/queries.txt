@@ -66,6 +66,20 @@ join(
 	) as seats on seat<=total_seats and seat not in (select berth_no from booking where tr_no = 18519 and date = '2022-04-04')
 
 
+changing booking status of a seat:
 
+unbooking :
+
+delete from booking where pnr_no = "1";
+
+booking : 
+
+insert into bookig values(1, 18519, date '2022-04-04', 590, 34, 'seater', 50, 'general');
+
+
+
+Trains running between start and dest
+
+immediate : 
 
 
