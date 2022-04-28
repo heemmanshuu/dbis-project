@@ -1,0 +1,74 @@
+<div class="Content">
+
+    <!-- <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            </ol>
+        </div>
+    </div> -->
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" action="#" method="post">
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-trainnumber">Train Number <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="trainForm.value.tr_no" type="number" class="form-control" id="val-trainnumber" name="val-trainnumber" placeholder="Enter a new train number">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-trianname">Train Name
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="trainForm.value.tr_name" type="text" class="form-control" id="val-trainname" name="val-trainname" placeholder="Give a name to train">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-start">Start Station<span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="trainForm.value.start" type="text" class="form-control" id="val-start" name="val-start" placeholder="Station where journey begins">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-end">Last Station<span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="trainForm.value.dest" type="text" class="form-control" id="val-end" name="val-end" placeholder="..and it ends!">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-type">Train Type
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="trainForm.value.tr_type" class="form-control" id="val-type" name="val-type" placeholder="weekly or daily or special">
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group row">
+                                    <div class="col-lg-8 ml-auto">
+                                        <button (click)="onSubmit()" type="submit" class="btn btn-primary" [disabled]="trainForm.value.dest == '' || trainForm.value.start == '' || !trainForm.value.tr_no">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
