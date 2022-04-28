@@ -8,6 +8,94 @@ const pool = new Pool({
     port: 5432,
 })
 
+const postTrain = (id) => {
+    return new Promise(function(resolve, reject) {
+        q = "insert into train values("+String(id[0])
+        pool.query("INSERT into train values($1, $2, $3, $4, $5)", [id[0], id[1], id[2], id[3], id[4]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+const delTrain = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from train where tr_no = $1", [id[0]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const updateTrain = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("update train set tr_name = $2, start = $3, dest = $4, tr_type = $5 where tr_no = $1", [id[0], id[1], id[2], id[3], id[4]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+module.exports = {
+    postTrain,
+    delTrain,
+    updateTrain
+}
+
+/*
+const getMatches = (body) => {
+    return new Promise(function(resolve, reject) {
+        const { toss_name, win_type } = body
+        pool.query("SELECT * FROM match where toss_name = $1 and win_type = $2", [toss_name, win_type], (error, results) => {
+            if (error) {
+                reject(error)
+            }
+            resolve("This was supposed to createMerchant")
+        })
+    })
+}
+
+*/
+
+// module.exports = {
+//     getMatches,
+//     getBatsmanById,
+//     getRunsById,
+//     getBowlerById,
+//     getPlayingXIById,
+//     getUmpiresById,
+//     getThirdUmpireById,
+//     getMatchInfoById,
+//     getScoreComparisionByMatch,
+//     getSeasonYearById,
+//     getTopBattersById,
+//     getTopBowlersById,
+//     getPlayerById,
+//     getPlayerBattingStatsById,
+//     getPlayerBattingGraphById,
+//     getPlayerBowlingStatsById,
+//     getPlayerBowlingGraphById,
+//     getSeasonPointsTable,
+//     getVenues,
+//     getVenueById,
+//     getVenuePieChart,
+//     getWinner,
+//     getSummaryPieChart,
+//     getSeasons,
+//     getVenueGraph,
+//     postVenue
+//     //getOwner,
+// }
+
+
 // this pool object will allow me to query into
 // my database
 
@@ -347,74 +435,4 @@ const pool = new Pool({
 //             resolve(results.rows);
 //         })
 //     })
-// }
-
-const postTrain = (id) => {
-    return new Promise(function(resolve, reject) {
-        pool.query("INSERT into train values($1, $2, $3, $4, $5)", [id[0], id[1], id[2], id[3], id[4]], (error, results) => {
-            if(error) {
-                reject(error)
-            }
-            console.log(results);
-            resolve(results.rows);
-        })
-    })
-}
-const delTrain = (id) => {
-    return new Promise(function(resolve, reject) {
-        pool.query("delete from train where tr_no = $1", [id[0]], (error, results) => {
-            if(error) {
-                reject(error)
-            }
-            // console.log(results);
-            resolve(results.rows);
-        })
-    })
-}
-/*
-const getMatches = (body) => {
-    return new Promise(function(resolve, reject) {
-        const { toss_name, win_type } = body
-        pool.query("SELECT * FROM match where toss_name = $1 and win_type = $2", [toss_name, win_type], (error, results) => {
-            if (error) {
-                reject(error)
-            }
-            resolve("This was supposed to createMerchant")
-        })
-    })
-}
-
-*/
-module.exports = {
-    postTrain,
-    delTrain
-}
-// module.exports = {
-//     getMatches,
-//     getBatsmanById,
-//     getRunsById,
-//     getBowlerById,
-//     getPlayingXIById,
-//     getUmpiresById,
-//     getThirdUmpireById,
-//     getMatchInfoById,
-//     getScoreComparisionByMatch,
-//     getSeasonYearById,
-//     getTopBattersById,
-//     getTopBowlersById,
-//     getPlayerById,
-//     getPlayerBattingStatsById,
-//     getPlayerBattingGraphById,
-//     getPlayerBowlingStatsById,
-//     getPlayerBowlingGraphById,
-//     getSeasonPointsTable,
-//     getVenues,
-//     getVenueById,
-//     getVenuePieChart,
-//     getWinner,
-//     getSummaryPieChart,
-//     getSeasons,
-//     getVenueGraph,
-//     postVenue
-//     //getOwner,
 // }

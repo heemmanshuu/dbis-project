@@ -9,13 +9,15 @@ import { AddtrainComponent } from './addtrain/addtrain.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DeltrainComponent } from './deltrain/deltrain.component';
+import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     AddtrainComponent,
-    DeltrainComponent
+    DeltrainComponent,
+    UpdatetrainComponent
   ],
   imports: [
     BrowserModule,

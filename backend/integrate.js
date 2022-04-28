@@ -22,6 +22,57 @@ app.get('/', (req, res) => {
     res.status(200).send('Hello World!');
 })
 
+app.post('/addtrain', (req, res) => {
+
+    console.log(req.body)
+    queries.postTrain(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/deltrain', (req, res) => {
+
+    console.log(req.body)
+    queries.delTrain(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/updatetrain', (req, res) => {
+
+    console.log(req.body)
+    queries.updateTrain(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+
+
+///////////////////////////////////////////////////////////
+
+
+
+// ------------------
+
+app.listen(port, () => {
+    console.log('App (integrated example) running on port ${port}.', port)
+})
+
+// API is ready to TAKE REQUESTS
+// create React app to SEND REQUESTS next
+
 
 // app.get('/api/seasons', (req, res) => {  // /\?skip=[0-9]+&limit=[0-9]+/
 //     //console.log(req.url);
@@ -412,42 +463,3 @@ app.get('/', (req, res) => {
 // c.
 
 ///////////////////////////////////////////////////////////
-
-app.post('/addtrain', (req, res) => {
-
-    console.log(req.body)
-    queries.postTrain(req.body)
-    .then(response => {
-        res.status(200).send(response);
-    })
-    .catch(error => {
-        res.status(500).send(error);
-    })
-})
-
-app.post('/deltrain', (req, res) => {
-
-    console.log(req.body)
-    queries.delTrain(req.body)
-    .then(response => {
-        res.status(200).send(response);
-    })
-    .catch(error => {
-        res.status(500).send(error);
-    })
-})
-
-
-
-///////////////////////////////////////////////////////////
-
-
-
-// ------------------
-
-app.listen(port, () => {
-    console.log('App (integrated example) running on port ${port}.', port)
-})
-
-// API is ready to TAKE REQUESTS
-// create React app to SEND REQUESTS next

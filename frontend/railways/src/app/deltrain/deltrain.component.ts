@@ -9,16 +9,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class DeltrainComponent implements OnInit {
 
-  constructor(private integrateService : IntegrateService) { }
   tr_id = new FormGroup({
     tr_no : new FormControl('', Validators.required),
   });
+  constructor(private integrateService : IntegrateService) { }
+  
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    this.integrateService.delTrain(this.tr_id)
+    this.integrateService.delTrain([this.tr_id.value.tr_no])
   .subscribe(train => {});
   this.tr_id.reset();
   }
