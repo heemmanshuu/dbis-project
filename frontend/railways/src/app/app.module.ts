@@ -8,12 +8,14 @@ import { AddtrainComponent } from './addtrain/addtrain.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DeltrainComponent } from './deltrain/deltrain.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    AddtrainComponent
+    AddtrainComponent,
+    DeltrainComponent
   ],
   imports: [
     BrowserModule,

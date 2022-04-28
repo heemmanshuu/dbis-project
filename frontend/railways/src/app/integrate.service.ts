@@ -19,6 +19,15 @@ export class IntegrateService {
     );
   }
 
+  delTrain(data: any){
+    const url = `http://localhost:3001/deltrain`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`posted train details`)),
+      catchError(this.handleError(`error in posting train details`))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

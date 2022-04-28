@@ -425,6 +425,19 @@ app.post('/addtrain', (req, res) => {
     })
 })
 
+app.post('/deltrain', (req, res) => {
+
+    console.log(req.body)
+    queries.delTrain(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+
 
 ///////////////////////////////////////////////////////////
 

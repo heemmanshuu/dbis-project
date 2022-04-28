@@ -360,7 +360,17 @@ const postTrain = (id) => {
         })
     })
 }
-
+const delTrain = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from train where tr_no = $1", [id[0]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
 /*
 const getMatches = (body) => {
     return new Promise(function(resolve, reject) {
@@ -376,7 +386,8 @@ const getMatches = (body) => {
 
 */
 module.exports = {
-    postTrain
+    postTrain,
+    delTrain
 }
 // module.exports = {
 //     getMatches,
