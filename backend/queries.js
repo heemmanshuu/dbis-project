@@ -44,10 +44,24 @@ const updateTrain = (id) => {
     })
 }
 
+const addStation = (id) => {
+    return new Promise(function(resolve, reject) {
+        q = "insert into station values("+String(id[0])
+        pool.query("INSERT into station values($1, $2, $3, $4)", [id[0], id[1], id[2], id[3]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
 module.exports = {
     postTrain,
     delTrain,
-    updateTrain
+    updateTrain,
+    addStation
 }
 
 /*

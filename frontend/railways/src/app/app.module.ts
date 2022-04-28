@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DeltrainComponent } from './deltrain/deltrain.component';
 import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
+import { AddstationComponent } from './addstation/addstation.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
     DashboardComponent,
     AddtrainComponent,
     DeltrainComponent,
-    UpdatetrainComponent
+    UpdatetrainComponent,
+    AddstationComponent
   ],
   imports: [
     BrowserModule,

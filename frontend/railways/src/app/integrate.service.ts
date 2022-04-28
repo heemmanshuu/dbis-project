@@ -14,8 +14,8 @@ export class IntegrateService {
     const url = `http://localhost:3001/addtrain`;
 
     return this.http.post(url, data).pipe(
-      tap(_ => console.log(`posted train details`)),
-      catchError(this.handleError(`error in posting train details`))
+      tap(_ => console.log(`Posted train details`)),
+      catchError(this.handleError(`Error in posting train details`))
     );
   }
 
@@ -23,8 +23,8 @@ export class IntegrateService {
     const url = `http://localhost:3001/deltrain`;
 
     return this.http.post(url, data).pipe(
-      tap(_ => console.log(`deleted train details`)),
-      catchError(this.handleError(`error in deleting train details`))
+      tap(_ => console.log(`Deleted train details`)),
+      catchError(this.handleError(`Error in deleting train details`))
     );
   }
 
@@ -32,8 +32,17 @@ export class IntegrateService {
     const url = `http://localhost:3001/updatetrain`;
 
     return this.http.post(url, data).pipe(
-      tap(_ => console.log(`updated train details`)),
-      catchError(this.handleError(`error in updating train details`))
+      tap(_ => console.log(`Updated train details`)),
+      catchError(this.handleError(`Error in updating train details`))
+    );
+  }
+
+  addStation(data: any){
+    const url = `http://localhost:3001/addstation`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added station details`)),
+      catchError(this.handleError(`Error in adding station details`))
     );
   }
 
