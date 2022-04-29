@@ -88,13 +88,13 @@ create table pf_avbl(
 );
 
 create table tr_comp (
-    trcomp_id int,-- generated always as identity,
-    tr_no int,
-    date date,
+    trcomp_id serial primary key ,
+    tr_no int not null,
+    date date not null,
     total_coaches int not null,
     engine_id int,
     total_stations int not null,
-    primary key(trcomp_id),
+    unique(tr_no, date),
 
     Foreign key(tr_no) references train on delete cascade,
     Foreign key(date) references date on delete cascade,
@@ -171,3 +171,16 @@ create table st_emp (
 
 );
 
+---------------------------------------------------------------
+---------------------------------------------------------------
+---------------------------------------------------------------
+
+drop function getId(integer, date);
+create or replace function getId(tr_id int, datee date)
+    returns integer as $h$
+    declare
+        h integer;
+BEGIN
+    select trcomp_id into h from tr_comp where tr_no = tr_id and date = datee;
+    return h;
+END;$h$ language plpgsql;
