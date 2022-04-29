@@ -194,6 +194,12 @@ app.post('/updateemployee', (req, res) => {
 
     console.log(req.body)
     queries.updateEmployee(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
 
  })
 
@@ -250,6 +256,56 @@ app.post('/deltrcomp', (req, res) => {
         res.status(500).send(error);
     })
 })
+
+app.post('/updatetrcomp', (req, res) => {
+
+    console.log(req.body)
+    queries.updateTrcomp(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/addtrcoach', (req, res) => {
+
+    console.log(req.body)
+    queries.addTrcoach(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/deltrcoach', (req, res) => {
+
+    console.log(req.body)
+    queries.delTrcoach(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/updatetrcoach', (req, res) => {
+
+    console.log(req.body)
+    queries.updateTrcoach(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+
 
 ///////////////////////////////////////////////////////////
 

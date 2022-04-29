@@ -32,7 +32,7 @@ export class UpdatetrcompComponent implements OnInit {
     this.trcompForm.value.engine_id,
     this.trcompForm.value.total_stations
   ])
-  .subscribe(trcomp => {});
+  .subscribe(tr_comp => {});
   this.trcompForm.reset();
 
   }

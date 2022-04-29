@@ -166,6 +166,42 @@ export class IntegrateService {
     );
   }
 
+  updateTrcomp(data: any){
+    const url = `http://localhost:3001/updatetrcomp`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated train's details for the date`)),
+      catchError(this.handleError(`Error in updating train's details for the date`))
+    );
+  }
+
+  addTrcoach(data: any){
+    const url = `http://localhost:3001/addtrcoach`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added coach details`)),
+      catchError(this.handleError(`Error in adding coach details`))
+    );
+  }
+
+  delTrcoach(data: any){
+    const url = `http://localhost:3001/deltrcoach`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Deleted coach details`)),
+      catchError(this.handleError(`Error in deleting coach details`))
+    );
+  }
+
+  updateTrcoach(data: any){
+    const url = `http://localhost:3001/updatetrcoach`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated coach details`)),
+      catchError(this.handleError(`Error in updating coach details`))
+    );
+  }
+
 
 
   getTrain(data: any){

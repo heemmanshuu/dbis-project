@@ -23,6 +23,9 @@ import { UpdatetrcompComponent } from './updatetrcomp/updatetrcomp.component';
 import { TrainRouteComponent } from './train-route/train-route.component';
 import { TrainCompositionComponent } from './train-composition/train-composition.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { AddtrcoachComponent } from './addtrcoach/addtrcoach.component';
+import { DeltrcoachComponent } from './deltrcoach/deltrcoach.component';
+import { UpdatetrcoachComponent } from './updatetrcoach/updatetrcoach.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent},
@@ -52,6 +55,10 @@ const routes: Routes = [
   {path: 'trainroute/:tr_id/:date', component:TrainRouteComponent},
   {path: 'traincomp/:tr_id/:date', component:TrainCompositionComponent},
   {path: 'employee/:id', component:EmployeeComponent},
+  {path: 'addtrcoach', component:AddtrcoachComponent},
+  {path: 'deltrcoach', component:DeltrcoachComponent},
+  {path: 'updatetrcoach', component:UpdatetrcoachComponent}
+
 ];
 
 @NgModule({
