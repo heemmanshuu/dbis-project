@@ -26,6 +26,9 @@ import { AddtrcompComponent } from './addtrcomp/addtrcomp.component';
 import { DeltrcompComponent } from './deltrcomp/deltrcomp.component';
 import { UpdatetrcompComponent } from './updatetrcomp/updatetrcomp.component';
 import { TrainDetailsComponent } from './train-details/train-details.component';
+import { TrainRouteComponent } from './train-route/train-route.component';
+import { TrainCompositionComponent } from './train-composition/train-composition.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,11 @@ import { TrainDetailsComponent } from './train-details/train-details.component';
     AddtrcompComponent,
     DeltrcompComponent,
     UpdatetrcompComponent,
-    TrainDetailsComponent
+    TrainDetailsComponent,
+    TrainRouteComponent,
+    TrainDetailsComponent,
+    TrainCompositionComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,

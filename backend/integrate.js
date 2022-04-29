@@ -194,7 +194,10 @@ app.post('/updateemployee', (req, res) => {
 
     console.log(req.body)
     queries.updateEmployee(req.body)
-app.get('/traindetails/:tr_id', (req, res) => {
+
+ })
+
+ app.get('/traindetails/:tr_id', (req, res) => {
     queries.getTrain(req.params.tr_id)
     .then(response => {
         res.status(200).send(response);
@@ -203,7 +206,26 @@ app.get('/traindetails/:tr_id', (req, res) => {
         res.status(500).send(error);
     })
 })
- })
+
+app.get('/trainroute/:tr_id/:date', (req, res) => {
+    queries.getRote(req.params.tr_id, req.params.date)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.get('/employee/:emp_id', (req, res) => {
+    queries.getTrain(req.params.emp_id)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
 
 app.post('/addtrcomp', (req, res) => {
 

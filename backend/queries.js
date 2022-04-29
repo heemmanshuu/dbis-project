@@ -211,11 +211,48 @@ const delTrcomp = (id) => {
             if(error) {
                 reject(error)
             }
-            // console.log(results);
+            console.log(results);
+    })
+})
+}
+
+const getTrain = (tr_id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("select * from train where tr_no = $1", [tr_id], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
             resolve(results.rows);
         })
     })
 }
+
+
+const getRoute = (tr_id,date) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("select st_code, time from tr_comp join route_stations on tr_comp.trcomp_id = route_stations.trcomp_id where tr_no = $1 and date = $2", [tr_id, date], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const getEmp = (emp_id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("select * from employee where emp_id = $1", [emp_id], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
 
 module.exports = {
     postTrain,
@@ -234,7 +271,10 @@ module.exports = {
     delEmployee,
     updateEmployee,
     addTrcomp,
-    delTrcomp
+    delTrcomp,
+    getTrain,
+    getRoute,
+    getEmp
 }
 
 /*
