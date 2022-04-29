@@ -22,6 +22,9 @@ import { UpdateengineComponent } from './updateengine/updateengine.component';
 import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { DelemployeeComponent } from './delemployee/delemployee.component';
 import { UpdateemployeeComponent } from './updateemployee/updateemployee.component';
+import { AddtrcompComponent } from './addtrcomp/addtrcomp.component';
+import { DeltrcompComponent } from './deltrcomp/deltrcomp.component';
+import { UpdatetrcompComponent } from './updatetrcomp/updatetrcomp.component';
 import { TrainDetailsComponent } from './train-details/train-details.component';
 
 @NgModule({
@@ -44,6 +47,9 @@ import { TrainDetailsComponent } from './train-details/train-details.component';
     DelemployeeComponent,
     UpdateemployeeComponent,
    
+    AddtrcompComponent,
+    DeltrcompComponent,
+    UpdatetrcompComponent,
     TrainDetailsComponent
   ],
   imports: [

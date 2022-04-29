@@ -192,9 +192,10 @@ const updateEmployee = (id) => {
     })
 }
 
-const getTrain = (tr_id) => {
+const addTrcomp = (id) => {
     return new Promise(function(resolve, reject) {
-        pool.query("select * from train where tr_no = $1", [tr_id], (error, results) => {
+        q = "insert into trcomp values("+String(id[0])
+        pool.query("INSERT into trcomp values($1, $2, $3, $4, $5, $6)", [id[0], id[1], id[2], id[3], id[4], id[5]], (error, results) => {
             if(error) {
                 reject(error)
             }
@@ -204,6 +205,17 @@ const getTrain = (tr_id) => {
     })
 }
 
+const delTrcomp = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from trcomp where tr_no = $1 and date = $3", [id[0], id[2]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
 
 module.exports = {
     postTrain,
@@ -221,7 +233,8 @@ module.exports = {
     addEmployee,
     delEmployee,
     updateEmployee,
-    getTrain
+    addTrcomp,
+    delTrcomp
 }
 
 /*
