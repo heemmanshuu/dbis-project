@@ -71,7 +71,7 @@ const delStation = (id) => {
 
 const updateStation = (id) => {
     return new Promise(function(resolve, reject) {
-        pool.query("update train set st_name = $2, city = $3, platforms = $4 where st_code = $1", [id[0], id[1], id[2], id[3]], (error, results) => {
+        pool.query("update station set st_name = $2, city = $3, platforms = $4 where st_code = $1", [id[0], id[1], id[2], id[3]], (error, results) => {
             if(error) {
                 reject(error)
             }
