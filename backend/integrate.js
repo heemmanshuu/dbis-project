@@ -202,6 +202,18 @@ app.post('/updateemployee', (req, res) => {
     })
 })
 
+app.post('/addtrcomp', (req, res) => {
+
+    console.log(req.body)
+    queries.addTrcomp(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
 ///////////////////////////////////////////////////////////
 
 

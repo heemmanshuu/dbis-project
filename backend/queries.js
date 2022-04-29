@@ -192,6 +192,19 @@ const updateEmployee = (id) => {
     })
 }
 
+const addTrcomp = (id) => {
+    return new Promise(function(resolve, reject) {
+        q = "insert into trcomp values("+String(id[0])
+        pool.query("INSERT into trcomp values($1, $2, $3, $4, $5, $6)", [id[0], id[1], id[2], id[3], id[4], id[5]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
 module.exports = {
     postTrain,
     delTrain,
@@ -207,7 +220,8 @@ module.exports = {
     updateEngine,
     addEmployee,
     delEmployee,
-    updateEmployee
+    updateEmployee,
+    addTrcomp
 }
 
 /*

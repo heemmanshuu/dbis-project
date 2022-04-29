@@ -5,6 +5,7 @@ import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { AddengineComponent } from './addengine/addengine.component';
 import { AddstationComponent } from './addstation/addstation.component';
 import { AddtrainComponent } from './addtrain/addtrain.component';
+import { AddtrcompComponent } from './addtrcomp/addtrcomp.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DelcoachComponent } from './delcoach/delcoach.component';
 import { DelemployeeComponent } from './delemployee/delemployee.component';
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path: 'updateengine', component:UpdateengineComponent},
   {path: 'addemployee', component:AddemployeeComponent},
   {path: 'delemployee', component:DelemployeeComponent},
-  {path: 'updateemployee', component:UpdateemployeeComponent}
+  {path: 'updateemployee', component:UpdateemployeeComponent},
+  {path: 'addtrcomp', component:AddtrcompComponent}
 ];
 
 @NgModule({

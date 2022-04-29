@@ -145,6 +145,16 @@ export class IntegrateService {
     );
   }
 
+  addTrcomp(data: any){
+    const url = `http://localhost:3001/addtrcomp`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added train's details for the date`)),
+      catchError(this.handleError(`Error in adding train's details for that date`))
+    );
+  }
+
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
