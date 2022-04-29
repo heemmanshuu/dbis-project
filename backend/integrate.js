@@ -154,6 +154,54 @@ app.post('/delengine', (req, res) => {
     })
 })
 
+app.post('/updateengine', (req, res) => {
+
+    console.log(req.body)
+    queries.updateEngine(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/addemployee', (req, res) => {
+
+    console.log(req.body)
+    queries.addEmployee(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/delemployee', (req, res) => {
+
+    console.log(req.body)
+    queries.delEmployee(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/updateemployee', (req, res) => {
+
+    console.log(req.body)
+    queries.updateEmployee(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
 ///////////////////////////////////////////////////////////
 
 

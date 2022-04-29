@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddcoachComponent } from './addcoach/addcoach.component';
+import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { AddengineComponent } from './addengine/addengine.component';
 import { AddstationComponent } from './addstation/addstation.component';
 import { AddtrainComponent } from './addtrain/addtrain.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DelcoachComponent } from './delcoach/delcoach.component';
+import { DelemployeeComponent } from './delemployee/delemployee.component';
 import { DelengineComponent } from './delengine/delengine.component';
 import { DelstationComponent } from './delstation/delstation.component';
 import { DeltrainComponent } from './deltrain/deltrain.component';
 import { UpdatecoachComponent } from './updatecoach/updatecoach.component';
+import { UpdateemployeeComponent } from './updateemployee/updateemployee.component';
 import { UpdateengineComponent } from './updateengine/updateengine.component';
 import { UpdatestationComponent } from './updatestation/updatestation.component';
 import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
@@ -27,7 +30,10 @@ const routes: Routes = [
   {path: 'updatecoach', component:UpdatecoachComponent},
   {path: 'addengine', component:AddengineComponent},
   {path: 'delengine', component:DelengineComponent},
-  {path: 'updateengine', component:UpdateengineComponent}
+  {path: 'updateengine', component:UpdateengineComponent},
+  {path: 'addemployee', component:AddemployeeComponent},
+  {path: 'delemployee', component:DelemployeeComponent},
+  {path: 'updateemployee', component:UpdateemployeeComponent}
 ];
 
 @NgModule({

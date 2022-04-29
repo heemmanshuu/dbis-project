@@ -20,6 +20,8 @@ import { AddengineComponent } from './addengine/addengine.component';
 import { DelengineComponent } from './delengine/delengine.component';
 import { UpdateengineComponent } from './updateengine/updateengine.component';
 import { AddemployeeComponent } from './addemployee/addemployee.component';
+import { DelemployeeComponent } from './delemployee/delemployee.component';
+import { UpdateemployeeComponent } from './updateemployee/updateemployee.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { AddemployeeComponent } from './addemployee/addemployee.component';
     DelengineComponent,
     UpdateengineComponent,
     AddemployeeComponent,
+    DelemployeeComponent,
+    UpdateemployeeComponent,
    
   ],
   imports: [

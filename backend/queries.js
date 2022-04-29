@@ -155,6 +155,43 @@ const updateEngine = (id) => {
     })
 }
 
+const addEmployee = (id) => {
+    return new Promise(function(resolve, reject) {
+        q = "insert into employee values("+String(id[0])
+        pool.query("INSERT into employee values($1, $2, $3, $4, $5)", [id[0], id[1], id[2], id[3], id[4]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const delEmployee = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from employee where emp_id = $1", [id[0]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const updateEmployee = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("update employee set emp_name = $2, age = $3, profession = $4, salary = $5 where emp_id = $1", [id[0], id[1], id[2], id[3], id[4]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
 module.exports = {
     postTrain,
     delTrain,
@@ -167,7 +204,10 @@ module.exports = {
     updateCoach,
     addEngine,
     delEngine,
-    updateEngine
+    updateEngine,
+    addEmployee,
+    delEmployee,
+    updateEmployee
 }
 
 /*

@@ -118,6 +118,33 @@ export class IntegrateService {
     );
   }
 
+  addEmployee(data: any){
+    const url = `http://localhost:3001/addemployee`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added employee details`)),
+      catchError(this.handleError(`Error in adding employee details`))
+    );
+  }
+
+  delEmployee(data: any){
+    const url = `http://localhost:3001/delemployee`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Deleted employee details`)),
+      catchError(this.handleError(`Error in deleting employee details`))
+    );
+  }
+
+  updateEmployee(data: any){
+    const url = `http://localhost:3001/updateemployee`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated employee details`)),
+      catchError(this.handleError(`Error in updating employee details`))
+    );
+  }
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
