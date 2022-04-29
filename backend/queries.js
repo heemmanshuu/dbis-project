@@ -192,6 +192,19 @@ const updateEmployee = (id) => {
     })
 }
 
+const getTrain = (tr_id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("select * from train where tr_no = $1", [tr_id], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+
 module.exports = {
     postTrain,
     delTrain,
@@ -207,7 +220,8 @@ module.exports = {
     updateEngine,
     addEmployee,
     delEmployee,
-    updateEmployee
+    updateEmployee,
+    getTrain
 }
 
 /*

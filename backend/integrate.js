@@ -194,6 +194,8 @@ app.post('/updateemployee', (req, res) => {
 
     console.log(req.body)
     queries.updateEmployee(req.body)
+app.get('/traindetails/:tr_id', (req, res) => {
+    queries.getTrain(req.params.tr_id)
     .then(response => {
         res.status(200).send(response);
     })
@@ -201,6 +203,7 @@ app.post('/updateemployee', (req, res) => {
         res.status(500).send(error);
     })
 })
+ })
 
 ///////////////////////////////////////////////////////////
 
@@ -254,15 +257,15 @@ app.listen(port, () => {
 // })
 
 // // before
-// //app.get('/matches/:id', (req, res) => {
-// //    merchant_model.getMatchById(req.params.id)
-// //    .then(response => {
-// //        res.status(200).send(response);
-// //    })
-// //    .catch(error => {
-// //        res.status(500).send(error);
-// //    })
-// //})
+// app.get('/matches/:id', (req, res) => {
+//    merchant_model.getMatchById(req.params.id)
+//    .then(response => {
+//        res.status(200).send(response);
+//    })
+//    .catch(error => {
+//        res.status(500).send(error);
+//    })
+// })
 
 // // after
 

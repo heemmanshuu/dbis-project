@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { train } from './interfaces/train';
 
 @Injectable({
   providedIn: 'root'
@@ -146,6 +147,18 @@ export class IntegrateService {
   }
 
 
+  getTrain(data: any){
+    const url = `http://localhost:3001/getTrain/${data}`;
+
+    return this.http.get<train[]>(url).pipe(
+      tap(_ => console.log(`Train details`)),
+      catchError(this.handleError<train[]>(`Error in fetching train details`)),
+      
+    );
+  }
+
+  
+  
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

@@ -16,10 +16,12 @@ import { UpdateemployeeComponent } from './updateemployee/updateemployee.compone
 import { UpdateengineComponent } from './updateengine/updateengine.component';
 import { UpdatestationComponent } from './updatestation/updatestation.component';
 import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
+import { TrainDetailsComponent } from './train-details/train-details.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'addtrain', component:AddtrainComponent},
+  {path: 'traindetails',component:TrainDetailsComponent},
   {path: 'deltrain', component:DeltrainComponent},
   {path: 'updatetrain', component:UpdatetrainComponent},
   {path: 'addstation', component:AddstationComponent},
@@ -33,7 +35,8 @@ const routes: Routes = [
   {path: 'updateengine', component:UpdateengineComponent},
   {path: 'addemployee', component:AddemployeeComponent},
   {path: 'delemployee', component:DelemployeeComponent},
-  {path: 'updateemployee', component:UpdateemployeeComponent}
+  {path: 'updateemployee', component:UpdateemployeeComponent},
+  {path: 'traindetails/:tr_id', component:TrainDetailsComponent}
 ];
 
 @NgModule({
