@@ -315,7 +315,41 @@ app.post('/updatetrcoach', (req, res) => {
     })
 })
 
+app.post('/addroutestations', (req, res) => {
 
+    console.log(req.body)
+    queries.addRoutestations(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/delroutestations', (req, res) => {
+
+    console.log(req.body)
+    queries.delRoutestations(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/updateroutestations', (req, res) => {
+
+    console.log(req.body)
+    queries.updateRoutestations(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
 
 ///////////////////////////////////////////////////////////
 

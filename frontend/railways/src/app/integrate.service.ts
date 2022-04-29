@@ -203,6 +203,32 @@ export class IntegrateService {
     );
   }
 
+  addRoutestations(data: any){
+    const url = `http://localhost:3001/addroutestations`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added station to the route`)),
+      catchError(this.handleError(`Error in adding station to route`))
+    );
+  }
+
+  delRoutestations(data: any){
+    const url = `http://localhost:3001/delroutestations`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Deleted station from route`)),
+      catchError(this.handleError(`Error in deleting station from route`))
+    );
+  }
+
+  updateRoutestations(data: any){
+    const url = `http://localhost:3001/updateroutestations`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated station on route`)),
+      catchError(this.handleError(`Error in updating station on route`))
+    );
+  }
 
 
   getTrain(data: any){

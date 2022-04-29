@@ -301,6 +301,19 @@ const updateTrcoach = (id) => {
     })
 }
 
+const addRoutestations = (id) => {
+    return new Promise(function(resolve, reject) {
+        q = "insert into route_stations values("+String(id[0])
+        pool.query("INSERT into route_stations values($1, $2)", [id[0], id[1]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
 const getTrains = (strt,dst) => {
     return new Promise(function(resolve, reject) {
         pool.query("select tr_no, date from route_stations as rs join route_stations as rd on rs.trcomp_id = rd.trcomp_id join tr_comp on rd.trcomp_id = tr_comp.trcomp_id where rs.st_code = $1 and rd.st_code = $2 and rs.time < rd.time", [strt,dst], (error, results) => {
@@ -313,6 +326,29 @@ const getTrains = (strt,dst) => {
     })
 }
 
+const delRoutestations = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from route_sattions where st_code = $1", [id[0]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const updateRoutestations = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("update route_stations set time = $2 where st_code = $1", [id[0], id[1]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
 
 module.exports = {
     postTrain,
@@ -339,7 +375,10 @@ module.exports = {
     addTrcoach,
     delTrcoach,
     updateTrcoach,
-    getTrains
+    getTrains,
+    addRoutestations,
+    delRoutestations,
+    updateRoutestations
 }
 
 /*
