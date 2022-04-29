@@ -55,6 +55,15 @@ export class IntegrateService {
     );
   }
 
+  updateStation(data: any){
+    const url = `http://localhost:3001/updatestation`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated station details`)),
+      catchError(this.handleError(`Error in updating station details`))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

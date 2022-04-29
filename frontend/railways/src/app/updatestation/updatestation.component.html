@@ -1,0 +1,68 @@
+<div class="Content">
+
+    <!-- <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            </ol>
+        </div>
+    </div> -->
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" action="#" method="post">
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-stationcode">Station Code <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="stationForm.value.st_code" type="text" class="form-control" id="val-stationcode" name="val-stationcode" placeholder="Enter the station code to be updated">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-stationname">Station Name <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="stationForm.value.st_name" type="text" class="form-control" id="val-stationname" name="val-stationname" placeholder="Updated station name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-city">City<span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="stationForm.value.city" type="text" class="form-control" id="val-city" name="val-city" placeholder="Updated city of the station">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-platforms">Platforms
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="stationForm.value.platforms" type="number" class="form-control" id="val-platforms" name="val-platforms" placeholder="Updated number of platforms in the station">
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group row">
+                                    <div class="col-lg-8 ml-auto">
+                                        <button (click)="onSubmit()" type="submit" class="btn btn-primary" [disabled]="stationForm.value.st_name == '' || stationForm.value.city == '' || stationForm.value.tst_code == undefined">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
+

@@ -5,6 +5,7 @@ import { AddtrainComponent } from './addtrain/addtrain.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DelstationComponent } from './delstation/delstation.component';
 import { DeltrainComponent } from './deltrain/deltrain.component';
+import { UpdatestationComponent } from './updatestation/updatestation.component';
 import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'updatetrain', component:UpdatetrainComponent},
   {path: 'addstation', component:AddstationComponent},
   {path: 'delstation', component:DelstationComponent},
+  {path: 'updatestation', component:UpdatestationComponent}
 ];
 
 @NgModule({
