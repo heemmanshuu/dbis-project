@@ -91,6 +91,34 @@ export class IntegrateService {
     );
   }
 
+  addEngine(data: any){
+    const url = `http://localhost:3001/addengine`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added engine details`)),
+      catchError(this.handleError(`Error in adding engine details`))
+    );
+  }
+
+  delEngine(data: any){
+    const url = `http://localhost:3001/delengine`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Delete engine details`)),
+      catchError(this.handleError(`Error in deleting engine details`))
+    );
+  }
+
+  updateEngine(data: any){
+    const url = `http://localhost:3001/updateengine`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated engine details`)),
+      catchError(this.handleError(`Error in updating engine details`))
+    );
+  }
+
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

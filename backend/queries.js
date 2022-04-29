@@ -118,6 +118,42 @@ const updateCoach = (id) => {
     })
 }
 
+const addEngine = (id) => {
+    return new Promise(function(resolve, reject) {
+        q = "insert into engine values("+String(id[0])
+        pool.query("INSERT into engine values($1, $2)", [id[0], id[1]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const delEngine = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from engine where engine_id = $1", [id[0]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const updateEngine = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("update engine set engine_type = $2 where engine_id = $1", [id[0], id[1]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
 
 module.exports = {
     postTrain,
@@ -128,7 +164,10 @@ module.exports = {
     updateStation,
     addCoach,
     delCoach,
-    updateCoach
+    updateCoach,
+    addEngine,
+    delEngine,
+    updateEngine
 }
 
 /*

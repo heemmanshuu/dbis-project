@@ -16,6 +16,10 @@ import { UpdatestationComponent } from './updatestation/updatestation.component'
 import { AddcoachComponent } from './addcoach/addcoach.component';
 import { DelcoachComponent } from './delcoach/delcoach.component';
 import { UpdatecoachComponent } from './updatecoach/updatecoach.component';
+import { AddengineComponent } from './addengine/addengine.component';
+import { DelengineComponent } from './delengine/delengine.component';
+import { UpdateengineComponent } from './updateengine/updateengine.component';
+import { AddemployeeComponent } from './addemployee/addemployee.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,10 @@ import { UpdatecoachComponent } from './updatecoach/updatecoach.component';
     AddcoachComponent,
     DelcoachComponent,
     UpdatecoachComponent,
+    AddengineComponent,
+    DelengineComponent,
+    UpdateengineComponent,
+    AddemployeeComponent,
    
   ],
   imports: [

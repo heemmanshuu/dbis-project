@@ -130,6 +130,29 @@ app.post('/updatecoach', (req, res) => {
     })
 })
 
+app.post('/addengine', (req, res) => {
+
+    console.log(req.body)
+    queries.addEngine(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/delengine', (req, res) => {
+
+    console.log(req.body)
+    queries.delEngine(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
 
 ///////////////////////////////////////////////////////////
 
