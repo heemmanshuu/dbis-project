@@ -223,6 +223,16 @@ app.get('/trainroute/:tr_id/:date', (req, res) => {
     })
 })
 
+app.get('/getTrains/:strt/:dst', (req, res) => {
+    queries.getRote(req.params.strt, req.params.dst)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
 app.get('/employee/:emp_id', (req, res) => {
     queries.getTrain(req.params.emp_id)
     .then(response => {

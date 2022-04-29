@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { train } from './interfaces/train';
 import { route } from './interfaces/route';
 import { empl } from './interfaces/employee';
+import { trains } from './interfaces/trains';
 
 @Injectable({
   providedIn: 'root'
@@ -230,6 +231,16 @@ export class IntegrateService {
     return this.http.get<empl[]>(url).pipe(
       tap(_ => console.log(`details`)),
       catchError(this.handleError<empl[]>(`Error in fetching details`)),
+      
+    );
+  }
+
+  getTrains(data1: any, data2: any ){
+    const url = `http://localhost:3001/getTrains/${data1}/${data2}`;
+
+    return this.http.get<trains[]>(url).pipe(
+      tap(_ => console.log(`details`)),
+      catchError(this.handleError<trains[]>(`Error in fetching details`)),
       
     );
   }

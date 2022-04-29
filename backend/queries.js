@@ -301,6 +301,18 @@ const updateTrcoach = (id) => {
     })
 }
 
+const getTrains = (strt,dst) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("select tr_no, date from route_stations as rs join route_stations as rd on rs.trcomp_id = rd.trcomp_id join tr_comp on rd.trcomp_id = tr_comp.trcomp_id where rs.st_code = $1 and rd.st_code = $2 and rs.time < rd.time", [strt,dst], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
 
 module.exports = {
     postTrain,
@@ -326,7 +338,8 @@ module.exports = {
     updateTrcomp,
     addTrcoach,
     delTrcoach,
-    updateTrcoach
+    updateTrcoach,
+    getTrains
 }
 
 /*

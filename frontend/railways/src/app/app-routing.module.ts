@@ -26,6 +26,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { AddtrcoachComponent } from './addtrcoach/addtrcoach.component';
 import { DeltrcoachComponent } from './deltrcoach/deltrcoach.component';
 import { UpdatetrcoachComponent } from './updatetrcoach/updatetrcoach.component';
+import { TrainsavblComponent } from './trainsavbl/trainsavbl.component';
+import { StationDetailsComponent } from './station-details/station-details.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent},
@@ -57,7 +59,9 @@ const routes: Routes = [
   {path: 'employee/:id', component:EmployeeComponent},
   {path: 'addtrcoach', component:AddtrcoachComponent},
   {path: 'deltrcoach', component:DeltrcoachComponent},
-  {path: 'updatetrcoach', component:UpdatetrcoachComponent}
+  {path: 'updatetrcoach', component:UpdatetrcoachComponent},
+  {path: 'trainsavbl', component:TrainsavblComponent},
+  {path: 'stndetails', component:StationDetailsComponent}
 
 ];
 

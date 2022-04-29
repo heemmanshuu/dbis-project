@@ -32,6 +32,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { AddtrcoachComponent } from './addtrcoach/addtrcoach.component';
 import { DeltrcoachComponent } from './deltrcoach/deltrcoach.component';
 import { UpdatetrcoachComponent } from './updatetrcoach/updatetrcoach.component';
+import { TrainsavblComponent } from './trainsavbl/trainsavbl.component';
+import { StationDetailsComponent } from './station-details/station-details.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { UpdatetrcoachComponent } from './updatetrcoach/updatetrcoach.component'
     EmployeeComponent,
     AddtrcoachComponent,
     DeltrcoachComponent,
-    UpdatetrcoachComponent
+    UpdatetrcoachComponent,
+    TrainsavblComponent,
+    StationDetailsComponent
   ],
   imports: [
     BrowserModule,
