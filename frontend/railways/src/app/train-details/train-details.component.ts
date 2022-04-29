@@ -13,7 +13,7 @@ export class TrainDetailsComponent implements OnInit {
   tr_id = new FormGroup({
     tr_no : new FormControl('', Validators.required),
   });
-  train : train | undefined;
+  train ?: train;
   constructor(private integrateService : IntegrateService, private route: Router) { }
 
   ngOnInit(): void {

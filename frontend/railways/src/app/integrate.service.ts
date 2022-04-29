@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { train } from './interfaces/train';
+import { route } from './interfaces/route';
+import { empl } from './interfaces/employee';
 
 @Injectable({
   providedIn: 'root'
@@ -238,7 +240,25 @@ export class IntegrateService {
     );
   }
 
-  
+  getRoute(tr_id: number,date: Date){
+    const url = `http://localhost:3001/getTrain/${tr_id}/${date}`;
+
+    return this.http.get<route[]>(url).pipe(
+      tap(_ => console.log(`Train details`)),
+      catchError(this.handleError<route[]>(`Error in fetching train details`)),
+      
+    );
+  }
+
+  getEmp(emp_id: number){
+    const url = `http://localhost:3001/getTrain/${emp_id}`;
+
+    return this.http.get<empl[]>(url).pipe(
+      tap(_ => console.log(`details`)),
+      catchError(this.handleError<empl[]>(`Error in fetching details`)),
+      
+    );
+  }
   
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

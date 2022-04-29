@@ -26,6 +26,9 @@ import { AddtrcompComponent } from './addtrcomp/addtrcomp.component';
 import { DeltrcompComponent } from './deltrcomp/deltrcomp.component';
 import { UpdatetrcompComponent } from './updatetrcomp/updatetrcomp.component';
 import { TrainDetailsComponent } from './train-details/train-details.component';
+import { TrainRouteComponent } from './train-route/train-route.component';
+import { TrainCompositionComponent } from './train-composition/train-composition.component';
+import { EmployeeComponent } from './employee/employee.component';
 import { AddtrcoachComponent } from './addtrcoach/addtrcoach.component';
 import { DeltrcoachComponent } from './deltrcoach/deltrcoach.component';
 import { UpdatetrcoachComponent } from './updatetrcoach/updatetrcoach.component';
@@ -57,6 +60,10 @@ import { UpdateroutestationsComponent } from './updateroutestations/updateroutes
     DeltrcompComponent,
     UpdatetrcompComponent,
     TrainDetailsComponent,
+    TrainRouteComponent,
+    TrainDetailsComponent,
+    TrainCompositionComponent,
+    EmployeeComponent,
     AddtrcoachComponent,
     DeltrcoachComponent,
     UpdatetrcoachComponent,

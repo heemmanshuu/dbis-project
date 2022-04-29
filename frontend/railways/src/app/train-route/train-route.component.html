@@ -14,8 +14,16 @@
                             </div>
                             
                             <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-del">Date<span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input [(ngModel)]="tr_id.value.date" type="date" class="form-control" id="val-del" name="val-del" placeholder="Enter date">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <div class="col-lg-8 ml-auto">
-                                    <button (click)="onSubmit()" type="submit"  class="btn btn-primary" [disabled]="!tr_id.value.tr_no">Submit</button>
+                                    <button (click)="onSubmit()" type="submit"  class="btn btn-primary" [disabled]="!tr_id.value.tr_no || !tr_id.value.date">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -28,26 +36,19 @@
 
 <br>
 
-<div *ngIf= "train != undefined">
+<div *ngIf= "route != null">
     <div class="container" style="background-color: aqua;">
         <div class="table table-borderd">  
             <table class='table table-borderd' role="grid" id="tablerecords">  
                 <thead class="thead-light" role="rowgroup">  
                     <tr role="row">
-                        <th scope="col">Train No.</th>  
-                        <th scope="col">Train Name</th>  
-                        <th scope="col">Start</th>
-                        <th scope="col">Destination</th>
-                        <th scope="col">Type</th>
-                    </tr>  
+                        <th scope="col">Station Id</th>  
+                        <th scope="col">Time</th>  
                 </thead>  
                 <tbody role="rowgroup">  
-                    <tr>
-            <th scope="row"><strong>{{train?.tr_no}}</strong></th>  
-            <td><strong>{{train?.tr_name}}</strong></td>  
-            <td><strong>{{train?.start}}</strong></td>  
-            <td><strong>{{train?.dest}}</strong></td>  
-            <td><strong>{{train?.tr_type}}</strong></td>  
+                    <tr *ngFor = "let rote of route">
+            <th scope="row"><strong>{{rote.st_id}}</strong></th>  
+            <td><strong>{{rote.time}}</strong></td>
         </tr>
         
         </tbody>  
