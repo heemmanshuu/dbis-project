@@ -106,6 +106,19 @@ const delCoach = (id) => {
     })
 }
 
+const updateCoach = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("update coach set total_seats = $2, coach_model = $3, coach_type = $4 where coach_id = $1", [id[0], id[1], id[2], id[3]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+
 module.exports = {
     postTrain,
     delTrain,
@@ -114,7 +127,8 @@ module.exports = {
     delStation,
     updateStation,
     addCoach,
-    delCoach
+    delCoach,
+    updateCoach
 }
 
 /*

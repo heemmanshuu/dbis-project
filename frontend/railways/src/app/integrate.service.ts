@@ -82,6 +82,15 @@ export class IntegrateService {
     );
   }
 
+  updateCoach(data: any){
+    const url = `http://localhost:3001/updatecoach`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated coach details`)),
+      catchError(this.handleError(`Error in updating coach details`))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

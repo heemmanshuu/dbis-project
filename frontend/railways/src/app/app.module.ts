@@ -15,6 +15,7 @@ import { DelstationComponent } from './delstation/delstation.component';
 import { UpdatestationComponent } from './updatestation/updatestation.component';
 import { AddcoachComponent } from './addcoach/addcoach.component';
 import { DelcoachComponent } from './delcoach/delcoach.component';
+import { UpdatecoachComponent } from './updatecoach/updatecoach.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DelcoachComponent } from './delcoach/delcoach.component';
     UpdatestationComponent,
     AddcoachComponent,
     DelcoachComponent,
+    UpdatecoachComponent,
    
   ],
   imports: [
