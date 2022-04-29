@@ -147,18 +147,17 @@ select emp_name, profession, age, salary from employee where emp_id = 123;
 
 3. train ID, date - engine ID, coach IDs
 
-select tr_no, engine_id, coach_id from tr_comp, tr_coach where tr_no = 123 and date = 101 and tr_comp.trcomp_id = tr_coach.trcomp_id; 
+select tr_no, engine_id, coach_id from tr_comp join tr_coach on tr_comp.trcomp_id = tr_coach.trcomp_id where tr_no = 123 and date = 101; 
 
 4. train ID, date - station names, time (route basically)
 
-select st_name, time from route_stations, tr_comp, station where tr_no = 123 and date = 101 and tr_comp.trcomp_id = route_stations.trcomp_id and route_stations.st_code = station.st_code;
+select st_name, time from tr_comp join route_stations on tr_comp.trcomp_id = route_stations.trcomp_id join station on route_stations.st_code = station.st_code where tr_no = 123 and date = 101;
 
 5. 2 station IDs - trains between them  (wouldn't it be better with names?)
 
-select tr_no, date from route_stations as rs, route_stations as rd, tr_comp 
-where rs.st_code = 12 and rd.st_code = 13 and rs.trcomp_id = rd.trcomp_id and rs.time < rd.time and 
-and rs.trcomp_id = tr_comp.trcomp_id and rd.trcomp_id = tr_comp.trcomp_id;
+select tr_no, date from route_stations as rs join route_stations as rd on rs.trcomp_id = rd.trcomp_id join tr_comp on rd.trcomp_id = tr_comp.trcomp_id
+where rs.st_code = 12 and rd.st_code = 13 and rs.time < rd.time;
 
 6. station ID, date or time - no. of platforms, platform status, station master
 
-
+select platforms, pf_no, pf_status
