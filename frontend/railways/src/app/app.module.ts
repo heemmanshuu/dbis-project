@@ -13,7 +13,6 @@ import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
 import { AddstationComponent } from './addstation/addstation.component';
 import { DelstationComponent } from './delstation/delstation.component';
 import { UpdatestationComponent } from './updatestation/updatestation.component';
-<<<<<<< Updated upstream
 import { AddcoachComponent } from './addcoach/addcoach.component';
 import { DelcoachComponent } from './delcoach/delcoach.component';
 import { UpdatecoachComponent } from './updatecoach/updatecoach.component';
@@ -23,9 +22,7 @@ import { UpdateengineComponent } from './updateengine/updateengine.component';
 import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { DelemployeeComponent } from './delemployee/delemployee.component';
 import { UpdateemployeeComponent } from './updateemployee/updateemployee.component';
-=======
 import { TrainDetailsComponent } from './train-details/train-details.component';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -37,7 +34,6 @@ import { TrainDetailsComponent } from './train-details/train-details.component';
     AddstationComponent,
     DelstationComponent,
     UpdatestationComponent,
-<<<<<<< Updated upstream
     AddcoachComponent,
     DelcoachComponent,
     UpdatecoachComponent,
@@ -48,9 +44,7 @@ import { TrainDetailsComponent } from './train-details/train-details.component';
     DelemployeeComponent,
     UpdateemployeeComponent,
    
-=======
     TrainDetailsComponent
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

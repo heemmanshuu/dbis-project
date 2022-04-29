@@ -57,7 +57,7 @@ Creating a route:
 Insert a coach to train route:
     INSERT into tr_coach values(1, 590);
     INSERT into tr_coach values(1, 591);
-
+    
 4) Seat availability in train on a date:
 
     -- have to return seat no, coach no, price, what about start dest??
