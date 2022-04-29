@@ -49,6 +49,7 @@ import { EmployeeComponent } from './employee/employee.component';
     AddemployeeComponent,
     DelemployeeComponent,
     UpdateemployeeComponent,
+   
     AddtrcompComponent,
     DeltrcompComponent,
     UpdatetrcompComponent,
