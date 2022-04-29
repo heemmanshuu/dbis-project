@@ -23,6 +23,9 @@ import { UpdatetrcompComponent } from './updatetrcomp/updatetrcomp.component';
 import { AddtrcoachComponent } from './addtrcoach/addtrcoach.component';
 import { DeltrcoachComponent } from './deltrcoach/deltrcoach.component';
 import { UpdatetrcoachComponent } from './updatetrcoach/updatetrcoach.component';
+import { AddroutestationsComponent } from './addroutestations/addroutestations.component';
+import { DelroutestationsComponent } from './delroutestations/delroutestations.component';
+import { UpdateroutestationsComponent } from './updateroutestations/updateroutestations.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent},
@@ -47,7 +50,10 @@ const routes: Routes = [
   {path: 'updatetrcomp', component:UpdatetrcompComponent},
   {path: 'addtrcoach', component:AddtrcoachComponent},
   {path: 'deltrcoach', component:DeltrcoachComponent},
-  {path: 'updatetrcoach', component:UpdatetrcoachComponent}
+  {path: 'updatetrcoach', component:UpdatetrcoachComponent},
+  {path: 'addroutestations', component:AddroutestationsComponent},
+  {path: 'delroutestations', component:DelroutestationsComponent},
+  {path: 'updateroutestations', component:UpdateroutestationsComponent}
 
 ];
 
