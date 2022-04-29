@@ -23,6 +23,7 @@ import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { DelemployeeComponent } from './delemployee/delemployee.component';
 import { UpdateemployeeComponent } from './updateemployee/updateemployee.component';
 import { AddtrcompComponent } from './addtrcomp/addtrcomp.component';
+import { DeltrcompComponent } from './deltrcomp/deltrcomp.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AddtrcompComponent } from './addtrcomp/addtrcomp.component';
     DelemployeeComponent,
     UpdateemployeeComponent,
     AddtrcompComponent,
+    DeltrcompComponent,
    
   ],
   imports: [

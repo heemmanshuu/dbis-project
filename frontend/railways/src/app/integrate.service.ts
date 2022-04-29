@@ -154,6 +154,15 @@ export class IntegrateService {
     );
   }
 
+  delTrcomp(data: any){
+    const url = `http://localhost:3001/deltrcomp`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Deleted train's details for the date`)),
+      catchError(this.handleError(`Error in deleting train's details for the date`))
+    );
+  }
+
 
 
   private handleError<T>(operation = 'operation', result?: T) {

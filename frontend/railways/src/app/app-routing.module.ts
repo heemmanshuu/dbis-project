@@ -12,6 +12,7 @@ import { DelemployeeComponent } from './delemployee/delemployee.component';
 import { DelengineComponent } from './delengine/delengine.component';
 import { DelstationComponent } from './delstation/delstation.component';
 import { DeltrainComponent } from './deltrain/deltrain.component';
+import { DeltrcompComponent } from './deltrcomp/deltrcomp.component';
 import { UpdatecoachComponent } from './updatecoach/updatecoach.component';
 import { UpdateemployeeComponent } from './updateemployee/updateemployee.component';
 import { UpdateengineComponent } from './updateengine/updateengine.component';
@@ -35,7 +36,8 @@ const routes: Routes = [
   {path: 'addemployee', component:AddemployeeComponent},
   {path: 'delemployee', component:DelemployeeComponent},
   {path: 'updateemployee', component:UpdateemployeeComponent},
-  {path: 'addtrcomp', component:AddtrcompComponent}
+  {path: 'addtrcomp', component:AddtrcompComponent},
+  {path: 'deltrcomp', component:DeltrcompComponent}
 ];
 
 @NgModule({
