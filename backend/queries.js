@@ -57,11 +57,37 @@ const addStation = (id) => {
     })
 }
 
+const delStation = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from station where st_code = $1", [id[0]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const updateStation = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("update train set st_name = $2, city = $3, platforms = $4 where st_code = $1", [id[0], id[1], id[2], id[3]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
 module.exports = {
     postTrain,
     delTrain,
     updateTrain,
-    addStation
+    addStation,
+    delStation,
+    updateStation
 }
 
 /*

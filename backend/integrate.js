@@ -70,6 +70,30 @@ app.post('/addstation', (req, res) => {
     })
 })
 
+app.post('/delstation', (req, res) => {
+
+    console.log(req.body)
+    queries.delStation(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.post('/updatestation', (req, res) => {
+
+    console.log(req.body)
+    queries.updateStation(req.body)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
 ///////////////////////////////////////////////////////////
 
 
