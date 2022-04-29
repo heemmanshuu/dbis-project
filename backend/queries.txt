@@ -12,14 +12,28 @@ update a train:
     update train set tr_name = "", start = "", dest = "", tr_type = "" where tr_no = "12345";
 
 2) 
+
+a. To get details of coaches and engines for a given Train_ID train_no : (SELECT)
+	
+
+
+
+b. To update the details of train components : (UPDATE)
+
+
 assigning coaches and engines:
     
+c. To add the details of a train’s coaches and engines not existing before in the table : (INSERT)
 adding a coach :
     INSERT into coach values(588, 72, 'f1', '2S');
-delete a coach:
-    delete from coach where coach_id = 588;   
+
 adding a engine :
     INSERT into engine values(16789, 'electric');
+
+d. To delete the existing details of a train’s components : (DELETE)
+delete a coach:
+    delete from coach where coach_id = 588;   
+
 delete a coach:
     delete from engine where engine_id = 16789;
 
@@ -83,3 +97,67 @@ Trains running between start and dest
 immediate : 
 
 
+6) Maintenance details of coaches and engines :
+
+To get details of a coach status with a given Train_ID train_no and Date : (SELECT)
+	SELECT coach_id from 
+    (select * from tr_comp where trcomp_id = 1 and tr_no = 12345 and date = lol) as t1, tr_coach
+    where t1.trcomp_id = tr_coach.trcomp_id;
+
+To update the details of that train : (UPDATE)
+	UPDATE 
+
+To add the details for a train not existing before in the table : (INSERT)
+	INSERT 
+
+To delete the existing details of a train’s maintenance sheet : (DELETE)
+
+
+
+
+
+8) Major Employee Details :
+
+To get details of an employee given the Employee_ID: (SELECT)
+	SELECT * from employee where emp_id = 1;
+
+To update the details of that employee : (UPDATE)
+	UPDATE employee set emp_name = "", age = 5, profession = "", salary = 10 where emp_id = 1;
+
+To add the details of an employee not existing before in the table : (INSERT)
+    (should i check if it exists beforehand?)
+	INSERT into employee values (1234, "", 5, "", 10);
+
+To delete the existing details of an employee : (DELETE)
+    DELETE from employee where emp_id = 1;
+
+
+
+==========================================================================================================
+
+6 queries for bharath
+
+1. Train number - name, start station, last station, type
+
+select tr_name, start, dest, tr_type from train where tr_no = 12345;
+
+2. employee id - name, profession, age, salary, experience
+
+select emp_name, profession, age, salary from employee where emp_id = 123;
+
+3. train ID, date - engine ID, coach IDs
+
+select tr_no, engine_id, coach_id from tr_comp join tr_coach on tr_comp.trcomp_id = tr_coach.trcomp_id where tr_no = 123 and date = 101; 
+
+4. train ID, date - station names, time (route basically)
+
+select st_name, time from tr_comp join route_stations on tr_comp.trcomp_id = route_stations.trcomp_id join station on route_stations.st_code = station.st_code where tr_no = 123 and date = 101;
+
+5. 2 station IDs - trains between them  (wouldn't it be better with names?)
+
+select tr_no, date from route_stations as rs join route_stations as rd on rs.trcomp_id = rd.trcomp_id join tr_comp on rd.trcomp_id = tr_comp.trcomp_id
+where rs.st_code = 12 and rd.st_code = 13 and rs.time < rd.time;
+
+6. station ID, date or time - no. of platforms, platform status, station master
+
+select platforms, pf_no, pf_status
