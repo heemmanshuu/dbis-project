@@ -64,6 +64,24 @@ export class IntegrateService {
     );
   }
 
+  addCoach(data: any){
+    const url = `http://localhost:3001/addcoach`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added coach details`)),
+      catchError(this.handleError(`Error in adding coach details`))
+    );
+  }
+
+  delCoach(data: any){
+    const url = `http://localhost:3001/delcoach`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Deleted coach details`)),
+      catchError(this.handleError(`Error in deleting coach details`))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

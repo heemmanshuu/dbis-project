@@ -13,6 +13,8 @@ import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
 import { AddstationComponent } from './addstation/addstation.component';
 import { DelstationComponent } from './delstation/delstation.component';
 import { UpdatestationComponent } from './updatestation/updatestation.component';
+import { AddcoachComponent } from './addcoach/addcoach.component';
+import { DelcoachComponent } from './delcoach/delcoach.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,10 @@ import { UpdatestationComponent } from './updatestation/updatestation.component'
     UpdatetrainComponent,
     AddstationComponent,
     DelstationComponent,
-    UpdatestationComponent
+    UpdatestationComponent,
+    AddcoachComponent,
+    DelcoachComponent,
+   
   ],
   imports: [
     BrowserModule,

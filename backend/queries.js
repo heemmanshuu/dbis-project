@@ -81,13 +81,40 @@ const updateStation = (id) => {
     })
 }
 
+const addCoach = (id) => {
+    return new Promise(function(resolve, reject) {
+        q = "insert into coach values("+String(id[0])
+        pool.query("INSERT into coach values($1, $2, $3, $4)", [id[0], id[1], id[2], id[3]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const delCoach = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from coach where coach_id = $1", [id[0]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
 module.exports = {
     postTrain,
     delTrain,
     updateTrain,
     addStation,
     delStation,
-    updateStation
+    updateStation,
+    addCoach,
+    delCoach
 }
 
 /*
