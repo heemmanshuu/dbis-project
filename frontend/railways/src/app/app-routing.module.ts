@@ -20,6 +20,9 @@ import { UpdatestationComponent } from './updatestation/updatestation.component'
 import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
 import { TrainDetailsComponent } from './train-details/train-details.component';
 import { UpdatetrcompComponent } from './updatetrcomp/updatetrcomp.component';
+import { AddtrcoachComponent } from './addtrcoach/addtrcoach.component';
+import { DeltrcoachComponent } from './deltrcoach/deltrcoach.component';
+import { UpdatetrcoachComponent } from './updatetrcoach/updatetrcoach.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent},
@@ -41,7 +44,10 @@ const routes: Routes = [
   {path: 'updateemployee', component:UpdateemployeeComponent},
   {path: 'addtrcomp', component:AddtrcompComponent},
   {path: 'deltrcomp', component:DeltrcompComponent},
-  {path: 'updatetrcomp', component:UpdatetrcompComponent}
+  {path: 'updatetrcomp', component:UpdatetrcompComponent},
+  {path: 'addtrcoach', component:AddtrcoachComponent},
+  {path: 'deltrcoach', component:DeltrcoachComponent},
+  {path: 'updatetrcoach', component:UpdatetrcoachComponent}
 
 ];
 
