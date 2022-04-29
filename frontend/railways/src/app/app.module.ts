@@ -49,6 +49,7 @@ import { UpdatetrcoachComponent } from './updatetrcoach/updatetrcoach.component'
     AddemployeeComponent,
     DelemployeeComponent,
     UpdateemployeeComponent,
+   
     AddtrcompComponent,
     DeltrcompComponent,
     UpdatetrcompComponent,
