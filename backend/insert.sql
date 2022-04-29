@@ -119,20 +119,21 @@ INSERT into pf_avbl values('LTT', 2, 0);
 INSERT into pf_avbl values('LTT', 3, 1);
 INSERT into pf_avbl values('LTT', 4, 1);
 
-INSERT into tr_comp values(1, 18519, date '2022-04-04', 5, 16789, 12);
-INSERT into tr_comp values(2, 11020, date '2022-04-03', 5, 58843, 11);
+INSERT into tr_comp (tr_no, date, total_coaches, engine_id, total_stations) values(18519, date '2022-04-04', 5, 16789, 12);
+INSERT into tr_comp (tr_no, date, total_coaches, engine_id, total_stations) values(11020, date '2022-04-03', 5, 58843, 11);
 -- INSERT into tr_comp values();
 
-INSERT into tr_coach values(1, 590, 1);
-INSERT into tr_coach values(1, 591, 2);
-INSERT into tr_coach values(1, 592, 3);
-INSERT into tr_coach values(1, 593, 4);
-INSERT into tr_coach values(1, 594, 5);
-INSERT into tr_coach values(2, 588, 1);
-INSERT into tr_coach values(2, 597, 2);
-INSERT into tr_coach values(2, 598, 3);
-INSERT into tr_coach values(2, 620, 4);
-INSERT into tr_coach values(2, 630, 5);
+insert into tr_coach values( getId(18519, '2022-04-04'), 588, 1);
+INSERT into tr_coach values( getId(18519, '2022-04-04'), 590, 1);
+INSERT into tr_coach values( getId(18519, '2022-04-04'), 591, 2);
+INSERT into tr_coach values( getId(18519, '2022-04-04'), 592, 3);
+INSERT into tr_coach values( getId(18519, '2022-04-04'), 593, 4);
+INSERT into tr_coach values( getId(18519, '2022-04-04'), 594, 5);
+INSERT into tr_coach values( getId(11020, '2022-04-03'), 588, 1);
+INSERT into tr_coach values( getId(11020, '2022-04-03'), 597, 2);
+INSERT into tr_coach values( getId(11020, '2022-04-03'), 598, 3);
+INSERT into tr_coach values( getId(11020, '2022-04-03'), 620, 4);
+INSERT into tr_coach values( getId(11020, '2022-04-03'), 630, 5);
 
 -- INSERT into tr_route values(1);
 -- INSERT into tr_route values(2);
