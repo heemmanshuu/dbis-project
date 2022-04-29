@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DeltrainComponent } from './deltrain/deltrain.component';
 import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
 import { AddstationComponent } from './addstation/addstation.component';
+import { DelstationComponent } from './delstation/delstation.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AddstationComponent } from './addstation/addstation.component';
     AddtrainComponent,
     DeltrainComponent,
     UpdatetrainComponent,
-    AddstationComponent
+    AddstationComponent,
+    DelstationComponent
   ],
   imports: [
     BrowserModule,

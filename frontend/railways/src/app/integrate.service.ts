@@ -46,6 +46,15 @@ export class IntegrateService {
     );
   }
 
+  delStation(data: any){
+    const url = `http://localhost:3001/delstation`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Deleted station details`)),
+      catchError(this.handleError(`Error in deleting station details`))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
