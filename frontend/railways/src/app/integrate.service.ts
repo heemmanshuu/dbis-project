@@ -4,13 +4,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { train } from './interfaces/train';
 import { route } from './interfaces/route';
-<<<<<<< HEAD
 import { employee } from './interfaces/employee';
 import { comp } from './interfaces/comp';
-=======
-import { empl } from './interfaces/employee';
 import { trains } from './interfaces/trains';
->>>>>>> 519929846ca081a25b2980ca774b5121e850b84d
 
 @Injectable({
   providedIn: 'root'

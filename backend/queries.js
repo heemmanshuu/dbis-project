@@ -333,7 +333,7 @@ const getTrains = (strt,dst) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            console.log(results.rows);
             resolve(results.rows);
         })
     })

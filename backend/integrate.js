@@ -224,7 +224,7 @@ app.get('/trainroute/:tr_id/:date', (req, res) => {
 })
 
 app.get('/getTrains/:strt/:dst', (req, res) => {
-    queries.getRote(req.params.strt, req.params.dst)
+    queries.getTrains(req.params.strt, req.params.dst)
     .then(response => {
         res.status(200).send(response);
     })
