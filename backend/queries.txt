@@ -151,7 +151,7 @@ select tr_no, engine_id, coach_id from tr_comp join tr_coach on tr_comp.trcomp_i
 
 4. train ID, date - station names, time (route basically)
 
-select st_name, time from tr_comp join route_stations on tr_comp.trcomp_id = route_stations.trcomp_id join station on route_stations.st_code = station.st_code where tr_no = 123 and date = 101;
+select st_code, time from tr_comp join route_stations on tr_comp.trcomp_id = route_stations.trcomp_id where tr_no = 123 and date = 101;
 
 5. 2 station IDs - trains between them  (wouldn't it be better with names?)
 
@@ -160,4 +160,6 @@ where rs.st_code = 12 and rd.st_code = 13 and rs.time < rd.time;
 
 6. station ID, date or time - no. of platforms, platform status, station master
 
-select platforms, pf_no, pf_status
+select platforms, pf_no, pf_status from 
+station join pf_avbl on station.st_code = pf_avbl.st_code join st_emp on station.st_code = st_emp.st_code join employee on st_emp.emp_id = employee.emp_id 
+where date(1011) = date and profession = "station master";
