@@ -57,7 +57,7 @@ Creating a route:
 Insert a coach to train route:
     INSERT into tr_coach values(1, 590);
     INSERT into tr_coach values(1, 591);
-
+    
 4) Seat availability in train on a date:
 
     -- have to return seat no, coach no, price, what about start dest??
@@ -147,7 +147,9 @@ select emp_name, profession, age, salary from employee where emp_id = 123;
 
 3. train ID, date - engine ID, coach IDs
 
-select tr_no, engine_id, coach_id from tr_comp join tr_coach on tr_comp.trcomp_id = tr_coach.trcomp_id where tr_no = 123 and date = 101; 
+select engine_id from tr_comp where tr_no = 123 and date = 101;
+
+select coach_id, coach_no from tr_comp join tr_coach on tr_comp.trcomp_id = tr_coach.trcomp_id where tr_no = 123 and date = 101 order by coach_no asc; 
 
 4. train ID, date - station names, time (route basically)
 

@@ -28,6 +28,34 @@
 
 <br>
 
-<div *ngIf="train != undefined">
-    {{train.tr_no}}   {{train.tr_name}}   {{train.start}}   {{train.dest}}   {{train.tr_type}}
+<div *ngIf= "train != undefined">
+    <div class="container" style="background-color: aqua;">
+        <div class="table table-borderd">  
+            <table class='table table-borderd' role="grid" id="tablerecords">  
+                <thead class="thead-light" role="rowgroup">  
+                    <tr role="row">
+                        <th scope="col">Train No.</th>  
+                        <th scope="col">Train Name</th>  
+                        <th scope="col">Start</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Type</th>
+                    </tr>  
+                </thead>  
+                <tbody role="rowgroup">  
+                    <tr>
+            <th scope="row"><strong>{{train?.tr_no}}</strong></th>  
+            <td><strong>{{train?.tr_name}}</strong></td>  
+            <td><strong>{{train?.start}}</strong></td>  
+            <td><strong>{{train?.dest}}</strong></td>  
+            <td><strong>{{train?.tr_type}}</strong></td>  
+        </tr>
+        
+        </tbody>  
+          
+        </table>  
+          
+        </div>  
+        </div>
+    
+    
 </div>

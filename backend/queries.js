@@ -15,7 +15,7 @@ const postTrain = (id) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            // console.log(results);
             resolve(results.rows);
         })
     })
@@ -26,7 +26,7 @@ const delTrain = (id) => {
             if(error) {
                 reject(error)
             }
-            // console.log(results);
+            // // console.log(results);
             resolve(results.rows);
         })
     })
@@ -38,7 +38,7 @@ const updateTrain = (id) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            // console.log(results);
             resolve(results.rows);
         })
     })
@@ -51,7 +51,7 @@ const addStation = (id) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            // console.log(results);
             resolve(results.rows);
         })
     })
@@ -63,7 +63,7 @@ const delStation = (id) => {
             if(error) {
                 reject(error)
             }
-            // console.log(results);
+            // // console.log(results);
             resolve(results.rows);
         })
     })
@@ -75,7 +75,7 @@ const updateStation = (id) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            // console.log(results);
             resolve(results.rows);
         })
     })
@@ -83,12 +83,11 @@ const updateStation = (id) => {
 
 const addCoach = (id) => {
     return new Promise(function(resolve, reject) {
-        q = "insert into coach values("+String(id[0])
         pool.query("INSERT into coach values($1, $2, $3, $4)", [id[0], id[1], id[2], id[3]], (error, results) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            // console.log(results);
             resolve(results.rows);
         })
     })
@@ -100,7 +99,7 @@ const delCoach = (id) => {
             if(error) {
                 reject(error)
             }
-            // console.log(results);
+            // // console.log(results);
             resolve(results.rows);
         })
     })
@@ -112,7 +111,7 @@ const updateCoach = (id) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            // console.log(results);
             resolve(results.rows);
         })
     })
@@ -125,7 +124,7 @@ const addEngine = (id) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            // console.log(results);
             resolve(results.rows);
         })
     })
@@ -137,7 +136,7 @@ const delEngine = (id) => {
             if(error) {
                 reject(error)
             }
-            // console.log(results);
+            // // console.log(results);
             resolve(results.rows);
         })
     })
@@ -149,7 +148,7 @@ const updateEngine = (id) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            // console.log(results);
             resolve(results.rows);
         })
     })
@@ -162,7 +161,7 @@ const addEmployee = (id) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            // console.log(results);
             resolve(results.rows);
         })
     })
@@ -174,7 +173,7 @@ const delEmployee = (id) => {
             if(error) {
                 reject(error)
             }
-            // console.log(results);
+            // // console.log(results);
             resolve(results.rows);
         })
     })
@@ -186,15 +185,139 @@ const updateEmployee = (id) => {
             if(error) {
                 reject(error)
             }
-            console.log(results);
+            // console.log(results);
             resolve(results.rows);
         })
     })
 }
 
+const addTrcomp = (id) => {
+    return new Promise(function(resolve, reject) {
+        // console.log(id)
+        pool.query("INSERT into tr_comp (tr_no, date, total_coaches, engine_id, total_stations) values($1, $2, $3, $4, $5)", [id[0], id[1], id[2], id[3], id[4]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const delTrcomp = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from tr_comp where tr_no = $1 and date = $2", [id[0], id[1]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+    })
+})
+}
+
 const getTrain = (tr_id) => {
     return new Promise(function(resolve, reject) {
         pool.query("select * from train where tr_no = $1", [tr_id], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const getRoute = (tr_id,date) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("select st_code, time from tr_comp join route_stations on tr_comp.trcomp_id = route_stations.trcomp_id where tr_no = $1 and date = $2 order by time", [tr_id, date], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            
+            // console.log(results.rows);
+            resolve(results.rows);
+        })
+    })
+}
+
+const getComp = (tr_id,date) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("select coach_id, coach_no from tr_comp join tr_coach on tr_comp.trcomp_id = tr_coach.trcomp_id where tr_no = $1 and date = $2 order by coach_no asc", [tr_id, date], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            
+            // console.log(results.rows);
+            resolve(results.rows);
+        })
+    })
+}
+
+const getEmp = (emp_id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("select * from employee where emp_id = $1", [emp_id], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results.rows);
+            resolve(results.rows);
+        })
+    })
+}
+
+const updateTrcomp = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("update tr_comp set total_coaches = $3, engine_id = $4, total_stations = $5 where tr_no = $1 and date = $2", [id[0], id[1], id[2], id[3], id[4]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const addTrcoach = (id) => {
+    return new Promise(function(resolve, reject) {
+        // console.log(id)
+        pool.query("INSERT into tr_coach values(getId($1, $2), $3, $4)", [id[0], id[1], id[2], id[3]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const delTrcoach = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from tr_coach where coach_id = $3 and trcomp_id = getId($1, $2)", [id[0], id[1], id[2]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const updateTrcoach = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("update tr_coach set coach_no = $4 where coach_id = $3 and trcomp_id = getId($1, $2)", [id[0], id[1], id[2], id[3]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const addRoutestations = (id) => {
+    return new Promise(function(resolve, reject) {
+        q = "insert into route_stations values("+String(id[0])
+        pool.query("INSERT into route_stations values($1, $2)", [id[0], id[1]], (error, results) => {
             if(error) {
                 reject(error)
             }
@@ -204,6 +327,41 @@ const getTrain = (tr_id) => {
     })
 }
 
+const getTrains = (strt,dst) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("select tr_no, date from route_stations as rs join route_stations as rd on rs.trcomp_id = rd.trcomp_id join tr_comp on rd.trcomp_id = tr_comp.trcomp_id where rs.st_code = $1 and rd.st_code = $2 and rs.time < rd.time", [strt,dst], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results.rows);
+            resolve(results.rows);
+        })
+    })
+}
+
+const delRoutestations = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("delete from route_sattions where st_code = $1", [id[0]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            // console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
+
+const updateRoutestations = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query("update route_stations set time = $2 where st_code = $1", [id[0], id[1]], (error, results) => {
+            if(error) {
+                reject(error)
+            }
+            console.log(results);
+            resolve(results.rows);
+        })
+    })
+}
 
 module.exports = {
     postTrain,
@@ -221,7 +379,19 @@ module.exports = {
     addEmployee,
     delEmployee,
     updateEmployee,
-    getTrain
+    addTrcomp,
+    delTrcomp,
+    getTrain,
+    getRoute,
+    getEmp,
+    updateTrcomp,
+    addTrcoach,
+    delTrcoach,
+    updateTrcoach,
+    getTrains,
+    addRoutestations,
+    delRoutestations,
+    updateRoutestations
 }
 
 /*
@@ -280,7 +450,7 @@ const getMatches = (body) => {
 // const getWinner = (match_id) => {
 //     return new Promise(function(resolve, reject) {
 //         //var q = url.parse(hi, true).query;
-//         //console.log(q);
+//         //// console.log(q);
 //         pool.query("select team_name, win_type, win_margin from match join team on match_winner = team_id and match_id = $1", [match_id], (error, results) => {
 //             if (error) {
 //                 reject(error)

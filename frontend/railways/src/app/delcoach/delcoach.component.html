@@ -10,14 +10,14 @@
                                 <label class="col-lg-4 col-form-label" for="val-del">Coach ID <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input [(ngModel)]="coachForm.value.tr_no" type="number" class="form-control" id="val-del" name="val-del" placeholder="Enter the coach ID to be deleted">
+                                    <input [(ngModel)]="c.value.coach_id" type="number" class="form-control" id="val-del" name="val-del" placeholder="Enter the coach ID to be deleted">
                                 </div>
                             </div>
                             
                             
                             <div class="form-group row">
                                 <div class="col-lg-8 ml-auto">
-                                    <button (click)="onSubmit()" type="submit" class="btn btn-primary" [disabled]="!coachForm.value.coach_id">Submit</button>
+                                    <button (click)="onSubmit()" type="submit" class="btn btn-primary" [disabled]="!c.value.coach_id">Submit</button>
                                 </div>
                             </div>
                         </form>

@@ -57,7 +57,7 @@
                                 
                                 <div class="form-group row">
                                     <div class="col-lg-8 ml-auto">
-                                        <button (click)="onSubmit()" type="submit" class="btn btn-primary" [disabled]="employeeForm.value.emp_name == '' || employeeForm.value.age == '' || employeeForm.value.profession == '' || employeeForm.value.salary == '' || employeeForm.value.emp_id == undefined ">Submit</button>
+                                        <button (click)="onSubmit()" type="submit" class="btn btn-primary" [disabled]="employeeForm.value.emp_name == null || employeeForm.value.age == null || employeeForm.value.profession == null || employeeForm.value.salary == null || employeeForm.value.emp_id == null ">Submit</button>
                                     </div>
                                 </div>
                             </form>

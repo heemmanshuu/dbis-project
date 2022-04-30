@@ -24,7 +24,7 @@ export class AddcoachComponent implements OnInit {
   }
 
   onSubmit(){
-    this.integrateService.addStation([this.coachForm.value.coach_id,
+    this.integrateService.addCoach([this.coachForm.value.coach_id,
     this.coachForm.value.total_seats,
     this.coachForm.value.coach_model,
     this.coachForm.value.coach_type  

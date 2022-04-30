@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class DelcoachComponent implements OnInit {
 
-  coachForm = new FormGroup({
+  c = new FormGroup({
     coach_id : new FormControl('', Validators.required),
   });
   constructor(private integrateService : IntegrateService) { }
@@ -19,9 +19,9 @@ export class DelcoachComponent implements OnInit {
   }
 
   onSubmit(){
-    this.integrateService.delCoach([this.coachForm.value.coach_id])
+    this.integrateService.delCoach([this.c.value.coach_id])
   .subscribe(coach => {});
-  this.coachForm.reset();
+  this.c.reset();
   }
 
 }

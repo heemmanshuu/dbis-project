@@ -1,0 +1,90 @@
+
+<div class="Content">
+
+    <!-- <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            </ol>
+        </div>
+    </div> -->
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" action="#" method="post">
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-trainnumber">Train Number <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="trcoachForm.value.tr_no" type="number" class="form-control" id="val-trainnumber" name="val-trainnumber" placeholder="Enter the train number to be added">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-date">Date<span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="trcoachForm.value.date" type="date" class="form-control" id="val-date" name="val-date" placeholder="Start date of the train">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-coachid">Coach ID <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="trcoachForm.value.coach_id" type="number" class="form-control" id="val-coachid" name="val-coachid" placeholder="Enter the coach ID to be added">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-coachno">Coach Number <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="trcoachForm.value.coach_no" type="number" class="form-control" id="val-coachno" name="val-coachno" placeholder="Coach number">
+                                    </div>
+                                </div>
+                               <!-- <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-city">City<span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="stationForm.value.city" type="text" class="form-control" id="val-city" name="val-city" placeholder="City/Village of the station">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-platforms">Number of platforms <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="stationForm.value.platforms" type="number" class="form-control" id="val-platforms" name="val-platforms" placeholder="Number of platforms in the station">
+                                    </div>
+                                </div>-->
+                                <!--<div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-type">Train Type
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input [(ngModel)]="trainForm.value.tr_type" class="form-control" id="val-type" name="val-type" placeholder="weekly or daily or special">
+                                    </div>
+                                </div>-->
+                                
+                                
+                                <div class="form-group row">
+                                    <div class="col-lg-8 ml-auto">
+                                        <button (click)="onSubmit()" type="submit" class="btn btn-primary" [disabled]="trcoachForm.value.coach_id == null || trcoachForm.value.coach_no == null || trcoachForm.value.tr_no == null || trcoachForm.value.date == null">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+

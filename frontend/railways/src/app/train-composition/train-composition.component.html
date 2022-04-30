@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-validation">
+                        <form class="form-valide" action="#" method="post">
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-del">Train Number <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input [(ngModel)]="tr_id.value.tr_no" type="number" class="form-control" id="val-del" name="val-del" placeholder="Enter the train number">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-del">Date<span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input [(ngModel)]="tr_id.value.date" type="date" class="form-control" id="val-del" name="val-del" placeholder="Enter date">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-lg-8 ml-auto">
+                                    <button (click)="onSubmit()" type="submit"  class="btn btn-primary" [disabled]="!tr_id.value.tr_no || !tr_id.value.date">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div *ngIf= "co.length != 0">
+    <div class="container" style="background-color: aqua;">
+        <div class="table table-borderd">  
+            <table class='table table-borderd' role="grid" id="tablerecords">  
+                <thead class="thead-light" role="rowgroup">  
+                    <tr role="row">  
+                        <th scope="col">Id</th>  
+                        <th scope="col">Coach number</th>  
+                </thead>  
+                <tbody role="rowgroup">  
+                    <tr *ngFor = "let comp of co">
+            <th scope="row"><strong>{{comp.coach_id}}</strong></th>  
+            <td><strong>{{comp.coach_no}}</strong></td>
+        </tr>
+        
+        </tbody>  
+          
+        </table>  
+          
+        </div>  
+        </div>
+    
+    
+</div>

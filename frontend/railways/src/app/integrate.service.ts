@@ -3,6 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { train } from './interfaces/train';
+import { route } from './interfaces/route';
+import { employee } from './interfaces/employee';
+import { comp } from './interfaces/comp';
+import { trains } from './interfaces/trains';
 
 @Injectable({
   providedIn: 'root'
@@ -146,6 +150,87 @@ export class IntegrateService {
     );
   }
 
+  addTrcomp(data: any){
+    const url = `http://localhost:3001/addtrcomp`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added train's details for the date`)),
+      catchError(this.handleError(`Error in adding train's details for that date`))
+    );
+  }
+
+  delTrcomp(data: any){
+    const url = `http://localhost:3001/deltrcomp`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Deleted train's details for the date`)),
+      catchError(this.handleError(`Error in deleting train's details for the date`))
+    );
+  }
+
+  updateTrcomp(data: any){
+    const url = `http://localhost:3001/updatetrcomp`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated train's details for the date`)),
+      catchError(this.handleError(`Error in updating train's details for the date`))
+    );
+  }
+
+  addTrcoach(data: any){
+    const url = `http://localhost:3001/addtrcoach`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added coach details`)),
+      catchError(this.handleError(`Error in adding coach details`))
+    );
+  }
+
+  delTrcoach(data: any){
+    const url = `http://localhost:3001/deltrcoach`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Deleted coach details`)),
+      catchError(this.handleError(`Error in deleting coach details`))
+    );
+  }
+
+  updateTrcoach(data: any){
+    const url = `http://localhost:3001/updatetrcoach`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated coach details`)),
+      catchError(this.handleError(`Error in updating coach details`))
+    );
+  }
+
+  addRoutestations(data: any){
+    const url = `http://localhost:3001/addroutestations`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added station to the route`)),
+      catchError(this.handleError(`Error in adding station to route`))
+    );
+  }
+
+  delRoutestations(data: any){
+    const url = `http://localhost:3001/delroutestations`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Deleted station from route`)),
+      catchError(this.handleError(`Error in deleting station from route`))
+    );
+  }
+
+  updateRoutestations(data: any){
+    const url = `http://localhost:3001/updateroutestations`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated station on route`)),
+      catchError(this.handleError(`Error in updating station on route`))
+    );
+  }
+
 
   getTrain(data: any){
     const url = `http://localhost:3001/getTrain/${data}`;
@@ -157,7 +242,46 @@ export class IntegrateService {
     );
   }
 
-  
+  getRoute(tr_id: number,date: Date){
+    const url = `http://localhost:3001/trainroute/${tr_id}/${date}`;
+    // console.log(`http://localhost:3001/trainroute/${tr_id}/${date}`);
+    return this.http.get<route[]>(url).pipe(
+      tap(_ => console.log(`Train details`)),
+      catchError(this.handleError<route[]>(`Error in fetching train details`)),
+      
+    );
+  }
+
+  getComp(tr_id: number,date: Date){
+    const url = `http://localhost:3001/getcomp/${tr_id}/${date}`;
+    // console.log(url);
+    // console.log(`http://localhost:3001/trainroute/${tr_id}/${date}`);
+    return this.http.get<comp[]>(url).pipe(
+      tap(_ => console.log(`Train details`)),
+      catchError(this.handleError<comp[]>(`Error in fetching train details`)),
+      
+    );
+  }
+
+  getEmp(emp_id: number){
+    const url = `http://localhost:3001/employee/${emp_id}`;
+
+    return this.http.get<employee[]>(url).pipe(
+      tap(_ => console.log(`details`)),
+      catchError(this.handleError<employee[]>(`Error in fetching details`)),
+      
+    );
+  }
+
+  getTrains(data1: any, data2: any ){
+    const url = `http://localhost:3001/getTrains/${data1}/${data2}`;
+
+    return this.http.get<trains[]>(url).pipe(
+      tap(_ => console.log(`details`)),
+      catchError(this.handleError<trains[]>(`Error in fetching details`)),
+      
+    );
+  }
   
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
