@@ -4,8 +4,13 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { train } from './interfaces/train';
 import { route } from './interfaces/route';
+<<<<<<< HEAD
 import { employee } from './interfaces/employee';
 import { comp } from './interfaces/comp';
+=======
+import { empl } from './interfaces/employee';
+import { trains } from './interfaces/trains';
+>>>>>>> 519929846ca081a25b2980ca774b5121e850b84d
 
 @Injectable({
   providedIn: 'root'
@@ -203,6 +208,32 @@ export class IntegrateService {
     );
   }
 
+  addRoutestations(data: any){
+    const url = `http://localhost:3001/addroutestations`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Added station to the route`)),
+      catchError(this.handleError(`Error in adding station to route`))
+    );
+  }
+
+  delRoutestations(data: any){
+    const url = `http://localhost:3001/delroutestations`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Deleted station from route`)),
+      catchError(this.handleError(`Error in deleting station from route`))
+    );
+  }
+
+  updateRoutestations(data: any){
+    const url = `http://localhost:3001/updateroutestations`;
+
+    return this.http.post(url, data).pipe(
+      tap(_ => console.log(`Updated station on route`)),
+      catchError(this.handleError(`Error in updating station on route`))
+    );
+  }
 
 
   getTrain(data: any){
@@ -242,6 +273,16 @@ export class IntegrateService {
     return this.http.get<employee[]>(url).pipe(
       tap(_ => console.log(`details`)),
       catchError(this.handleError<employee[]>(`Error in fetching details`)),
+      
+    );
+  }
+
+  getTrains(data1: any, data2: any ){
+    const url = `http://localhost:3001/getTrains/${data1}/${data2}`;
+
+    return this.http.get<trains[]>(url).pipe(
+      tap(_ => console.log(`details`)),
+      catchError(this.handleError<trains[]>(`Error in fetching details`)),
       
     );
   }
