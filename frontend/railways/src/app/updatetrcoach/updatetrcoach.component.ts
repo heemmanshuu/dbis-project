@@ -10,6 +10,8 @@ import { IntegrateService } from '../integrate.service';
 export class UpdatetrcoachComponent implements OnInit {
 
   trcoachForm = new FormGroup({
+    tr_no : new FormControl('', Validators.required),
+    date : new FormControl('', Validators.required),
     coach_id: new FormControl('', Validators.required),
     //st_name : new FormControl('', Validators.required),
    // city : new FormControl('', Validators.required),
@@ -22,11 +24,10 @@ export class UpdatetrcoachComponent implements OnInit {
   }
 
   onSubmit(){
-    this.integrateService.updateTrcoach([this.trcoachForm.value.coach_id,
-    //this.stationForm.value.st_name,
-    //this.stationForm.value.city,
-    this.trcoachForm.value.coach_no
-  ])
+    this.integrateService.updateTrcoach([this.trcoachForm.value.tr_no,
+      this.trcoachForm.value.date,
+      this.trcoachForm.value.coach_id,
+    this.trcoachForm.value.coach_no])
   .subscribe(tr_coach => {});
   this.trcoachForm.reset();
   }

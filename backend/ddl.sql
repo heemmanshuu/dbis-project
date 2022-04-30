@@ -54,12 +54,12 @@ create table engine (
     Primary key(engine_id)
 );
 
-create table date (
-    date date,
-    day text not null,
+-- create table date (
+--     date date,
+--     day text not null,
 
-    Primary key(date)
-);
+--     Primary key(date)
+-- );
 
 create table employee (
     emp_id int,
@@ -97,7 +97,6 @@ create table tr_comp (
     unique(tr_no, date),
 
     Foreign key(tr_no) references train on delete cascade,
-    Foreign key(date) references date on delete cascade,
     Foreign key(engine_id) references engine on delete cascade
 );
 
@@ -125,7 +124,7 @@ create table tr_coach (
 create table route_stations (
     trcomp_id int,
     st_code text,
-    time timestamp not null,
+    time text not null,
 
     primary key(trcomp_id, st_code),
     Foreign key(trcomp_id) references tr_comp on delete cascade,
@@ -145,8 +144,7 @@ create table booking (
     primary key(pnr_no),
 
     Foreign key(tr_no) references train on delete cascade,
-    Foreign key(coach_id) references coach on delete cascade,
-    Foreign key(date) references date on delete cascade
+    Foreign key(coach_id) references coach on delete cascade
 
 );
 
@@ -166,7 +164,6 @@ create table st_emp (
 
     primary key (st_code, date),
     Foreign key(emp_id) references employee on delete cascade,
-    Foreign key(date) references date on delete cascade,
     Foreign key(st_code) references station on delete cascade
 
 );

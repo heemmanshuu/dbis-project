@@ -20,7 +20,6 @@ export class TrainDetailsComponent implements OnInit {
   }
 
   onSubmit(){
-    this.route.navigate([`/traindetails/${this.tr_id.value.tr_no}`]);
     this.integrateService.getTrain(this.tr_id.value.tr_no)
   .subscribe(tr => this.train = tr[0]);
   // this.tr_id.reset();

@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 app.post('/addtrain', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.postTrain(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -36,7 +36,7 @@ app.post('/addtrain', (req, res) => {
 
 app.post('/deltrain', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.delTrain(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -48,7 +48,7 @@ app.post('/deltrain', (req, res) => {
 
 app.post('/updatetrain', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.updateTrain(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -60,7 +60,7 @@ app.post('/updatetrain', (req, res) => {
 
 app.post('/addstation', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.addStation(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -72,7 +72,7 @@ app.post('/addstation', (req, res) => {
 
 app.post('/delstation', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.delStation(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -84,7 +84,7 @@ app.post('/delstation', (req, res) => {
 
 app.post('/updatestation', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.updateStation(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -96,7 +96,7 @@ app.post('/updatestation', (req, res) => {
 
 app.post('/addcoach', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.addCoach(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -108,7 +108,7 @@ app.post('/addcoach', (req, res) => {
 
 app.post('/delcoach', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.delCoach(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -120,7 +120,7 @@ app.post('/delcoach', (req, res) => {
 
 app.post('/updatecoach', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.updateCoach(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -132,7 +132,7 @@ app.post('/updatecoach', (req, res) => {
 
 app.post('/addengine', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.addEngine(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -144,7 +144,7 @@ app.post('/addengine', (req, res) => {
 
 app.post('/delengine', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.delEngine(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -156,7 +156,7 @@ app.post('/delengine', (req, res) => {
 
 app.post('/updateengine', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.updateEngine(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -168,7 +168,7 @@ app.post('/updateengine', (req, res) => {
 
 app.post('/addemployee', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.addEmployee(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -180,7 +180,7 @@ app.post('/addemployee', (req, res) => {
 
 app.post('/delemployee', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.delEmployee(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -192,7 +192,7 @@ app.post('/delemployee', (req, res) => {
 
 app.post('/updateemployee', (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     queries.updateEmployee(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -203,7 +203,7 @@ app.post('/updateemployee', (req, res) => {
 
  })
 
- app.get('/traindetails/:tr_id', (req, res) => {
+ app.get('/getTrain/:tr_id', (req, res) => {
     queries.getTrain(req.params.tr_id)
     .then(response => {
         res.status(200).send(response);
@@ -214,7 +214,7 @@ app.post('/updateemployee', (req, res) => {
 })
 
 app.get('/trainroute/:tr_id/:date', (req, res) => {
-    queries.getRote(req.params.tr_id, req.params.date)
+    queries.getRoute(req.params.tr_id, req.params.date)
     .then(response => {
         res.status(200).send(response);
     })
@@ -224,7 +224,17 @@ app.get('/trainroute/:tr_id/:date', (req, res) => {
 })
 
 app.get('/employee/:emp_id', (req, res) => {
-    queries.getTrain(req.params.emp_id)
+    queries.getEmp(req.params.emp_id)
+    .then(response => {
+        res.status(200).send(response);
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+app.get('/getcomp/:tr_id/:date', (req, res) => {
+    queries.getComp(req.params.tr_id, req.params.date)
     .then(response => {
         res.status(200).send(response);
     })
@@ -235,7 +245,7 @@ app.get('/employee/:emp_id', (req, res) => {
 
 app.post('/addtrcomp', (req, res) => {
 
-    console.log(req.body)
+    // // console.log(req.body)
     queries.addTrcomp(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -247,7 +257,7 @@ app.post('/addtrcomp', (req, res) => {
 
 app.post('/deltrcomp', (req, res) => {
 
-    console.log(req.body)
+    // // console.log(req.body)
     queries.delTrcomp(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -259,7 +269,7 @@ app.post('/deltrcomp', (req, res) => {
 
 app.post('/updatetrcomp', (req, res) => {
 
-    console.log(req.body)
+    // // console.log(req.body)
     queries.updateTrcomp(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -271,7 +281,7 @@ app.post('/updatetrcomp', (req, res) => {
 
 app.post('/addtrcoach', (req, res) => {
 
-    console.log(req.body)
+    // // console.log(req.body)
     queries.addTrcoach(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -283,7 +293,7 @@ app.post('/addtrcoach', (req, res) => {
 
 app.post('/deltrcoach', (req, res) => {
 
-    console.log(req.body)
+    // // console.log(req.body)
     queries.delTrcoach(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -295,7 +305,7 @@ app.post('/deltrcoach', (req, res) => {
 
 app.post('/updatetrcoach', (req, res) => {
 
-    console.log(req.body)
+    // // console.log(req.body)
     queries.updateTrcoach(req.body)
     .then(response => {
         res.status(200).send(response);
@@ -314,7 +324,7 @@ app.post('/updatetrcoach', (req, res) => {
 // ------------------
 
 app.listen(port, () => {
-    console.log('App (integrated example) running on port ${port}.', port)
+    // // console.log('App (integrated example) running on port ${port}.', port)
 })
 
 // API is ready to TAKE REQUESTS
@@ -322,7 +332,7 @@ app.listen(port, () => {
 
 
 // app.get('/api/seasons', (req, res) => {  // /\?skip=[0-9]+&limit=[0-9]+/
-//     //console.log(req.url);
+//     //// console.log(req.url);
 //     //[q.skip, q.limit],
 //     merchant_model.getSeasons()
 //     .then(response => {
@@ -336,7 +346,7 @@ app.listen(port, () => {
 
 // // 1.
 // app.get('/api/matches/:match_id/winner', (req, res) => {  // /\?skip=[0-9]+&limit=[0-9]+/
-//     //console.log(req.url);
+//     //// console.log(req.url);
 //     //[q.skip, q.limit],
 //     merchant_model.getWinner(req.params.match_id)
 //     .then(response => {
@@ -347,7 +357,7 @@ app.listen(port, () => {
 //     })
 // })
 // app.get('/api/matches/:skip/display', (req, res) => {  // /\?skip=[0-9]+&limit=[0-9]+/
-//     //console.log(req.url);
+//     //// console.log(req.url);
 //     //[q.skip, q.limit],
 //     merchant_model.getMatches(req.params.skip)
 //     .then(response => {
@@ -651,7 +661,7 @@ app.listen(port, () => {
 
 // // 1.
 // app.get('/api/venues', (req, res) => {
-//     //console.log(req.url);
+//     //// console.log(req.url);
 //     merchant_model.getVenues(req.url)
 //     .then(response => {
 //         res.status(200).send(response);
@@ -696,8 +706,8 @@ app.listen(port, () => {
 // })
 
 // app.post('/api/addvenue', (req, res) => {
-//     //console.log(req);
-//     //console.log(req.body);
+//     //// console.log(req);
+//     //// console.log(req.body);
 //     merchant_model.postVenue(req.body)
 //     .then(response => {
 //         res.status(200).send(response);

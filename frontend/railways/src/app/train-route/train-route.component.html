@@ -36,7 +36,7 @@
 
 <br>
 
-<div *ngIf= "route != null">
+<div *ngIf= "route.length != 0">
     <div class="container" style="background-color: aqua;">
         <div class="table table-borderd">  
             <table class='table table-borderd' role="grid" id="tablerecords">  
@@ -47,7 +47,7 @@
                 </thead>  
                 <tbody role="rowgroup">  
                     <tr *ngFor = "let rote of route">
-            <th scope="row"><strong>{{rote.st_id}}</strong></th>  
+            <th scope="row"><strong>{{rote.st_code}}</strong></th>  
             <td><strong>{{rote.time}}</strong></td>
         </tr>
         

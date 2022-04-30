@@ -35,18 +35,19 @@
 </div>
 <br>
 
-<!-- <div *ngIf= "comp != null">
+<div *ngIf= "co.length != 0">
     <div class="container" style="background-color: aqua;">
         <div class="table table-borderd">  
             <table class='table table-borderd' role="grid" id="tablerecords">  
                 <thead class="thead-light" role="rowgroup">  
                     <tr role="row">  
                         <th scope="col">Id</th>  
+                        <th scope="col">Coach number</th>  
                 </thead>  
                 <tbody role="rowgroup">  
-                    <tr *ngFor = "let comp of comp">
-            <th scope="row"><strong>{{comp.id}}</strong></th>  
-            <td><strong>{{comp.time}}</strong></td>
+                    <tr *ngFor = "let comp of co">
+            <th scope="row"><strong>{{comp.coach_id}}</strong></th>  
+            <td><strong>{{comp.coach_no}}</strong></td>
         </tr>
         
         </tbody>  
@@ -57,4 +58,4 @@
         </div>
     
     
-</div> -->
+</div>

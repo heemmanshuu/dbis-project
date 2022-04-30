@@ -12,7 +12,6 @@ export class UpdatetrcompComponent implements OnInit {
 
   trcompForm = new FormGroup({
     tr_no : new FormControl('', Validators.required),
-    tr_name : new FormControl(),
     date : new FormControl('', Validators.required),
     total_coaches : new FormControl('', Validators.required),
     engine_id : new FormControl(),
@@ -26,7 +25,6 @@ export class UpdatetrcompComponent implements OnInit {
 
   onSubmit(){
     this.integrateService.updateTrcomp([this.trcompForm.value.tr_no,
-    this.trcompForm.value.tr_name,
     this.trcompForm.value.date,
     this.trcompForm.value.total_coaches,
     this.trcompForm.value.engine_id,

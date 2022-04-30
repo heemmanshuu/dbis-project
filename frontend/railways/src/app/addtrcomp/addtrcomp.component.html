@@ -25,13 +25,7 @@
                                         <input [(ngModel)]="trcompForm.value.tr_no" type="number" class="form-control" id="val-trainnumber" name="val-trainnumber" placeholder="Enter the train number to be added">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-trainname">Train Name
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input [(ngModel)]="trcompForm.value.tr_name" type="text" class="form-control" id="val-trainname" name="val-trainname" placeholder="Enter the name of the train">
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-date">Date<span class="text-danger">*</span>
                                     </label>
@@ -50,7 +44,7 @@
                                     <label class="col-lg-4 col-form-label" for="val-engineid">Engine ID
                                     </label>
                                     <div class="col-lg-6">
-                                        <input [(ngModel)]="trcompForm.value.engine_id" class="form-control" id="val-engineid" name="val-engineid" placeholder="ID of the engine">
+                                        <input [(ngModel)]="trcompForm.value.engine_id" type = "number" class="form-control" id="val-engineid" name="val-engineid" placeholder="ID of the engine">
                                     </div>
                                 </div>
                                 <div class="form-group row">

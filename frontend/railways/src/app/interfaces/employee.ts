@@ -1,7 +1,7 @@
-export interface empl {
+export interface employee {
     emp_id : number,
     emp_name: string,
-    profession: string,
     age: number,
+    profession: string,
     salary: number
 }

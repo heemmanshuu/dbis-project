@@ -4,7 +4,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { train } from './interfaces/train';
 import { route } from './interfaces/route';
-import { empl } from './interfaces/employee';
+import { employee } from './interfaces/employee';
+import { comp } from './interfaces/comp';
 
 @Injectable({
   providedIn: 'root'
@@ -215,8 +216,8 @@ export class IntegrateService {
   }
 
   getRoute(tr_id: number,date: Date){
-    const url = `http://localhost:3001/getTrain/${tr_id}/${date}`;
-
+    const url = `http://localhost:3001/trainroute/${tr_id}/${date}`;
+    // console.log(`http://localhost:3001/trainroute/${tr_id}/${date}`);
     return this.http.get<route[]>(url).pipe(
       tap(_ => console.log(`Train details`)),
       catchError(this.handleError<route[]>(`Error in fetching train details`)),
@@ -224,12 +225,23 @@ export class IntegrateService {
     );
   }
 
-  getEmp(emp_id: number){
-    const url = `http://localhost:3001/getTrain/${emp_id}`;
+  getComp(tr_id: number,date: Date){
+    const url = `http://localhost:3001/getcomp/${tr_id}/${date}`;
+    // console.log(url);
+    // console.log(`http://localhost:3001/trainroute/${tr_id}/${date}`);
+    return this.http.get<comp[]>(url).pipe(
+      tap(_ => console.log(`Train details`)),
+      catchError(this.handleError<comp[]>(`Error in fetching train details`)),
+      
+    );
+  }
 
-    return this.http.get<empl[]>(url).pipe(
+  getEmp(emp_id: number){
+    const url = `http://localhost:3001/employee/${emp_id}`;
+
+    return this.http.get<employee[]>(url).pipe(
       tap(_ => console.log(`details`)),
-      catchError(this.handleError<empl[]>(`Error in fetching details`)),
+      catchError(this.handleError<employee[]>(`Error in fetching details`)),
       
     );
   }

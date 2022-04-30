@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IntegrateService } from '../integrate.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { empl } from '../interfaces/employee';
+import { employee } from '../interfaces/employee';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,15 +13,14 @@ export class EmployeeComponent implements OnInit {
   emp = new FormGroup({
     emp_id : new FormControl('', Validators.required),
   });
-  empl ?: empl;
+  empl ?: employee;
   constructor(private integrateService : IntegrateService, private route: Router) { }
 
   ngOnInit(): void {
   }
   onSubmit(){
-    this.route.navigate([`/employee/${this.emp.value.emp_id}`]);
     this.integrateService.getEmp(this.emp.value.emp_id)
-  .subscribe(tr => this.empl = tr[0]);
+  .subscribe(tr => {this.empl = tr[0]; console.log(this.empl);});
   // this.tr_id.reset();
   }
 }

@@ -1,6 +1,7 @@
 import { Time } from "@angular/common";
+import { Timestamp } from "rxjs";
 
 export interface route {
-    st_id : string,
-    time : Time,
+    st_code : string,
+    time : string,
 }

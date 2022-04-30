@@ -56,9 +56,9 @@ INSERT into coach values(630, 48, 'f1', '3A');
 INSERT into engine values(16789, 'electric');
 INSERT into engine values(58843, 'diesel');
 
-INSERT into date values(date '2022-04-03', 'Sun');
-INSERT into date values(date '2022-04-04', 'Mon');
-INSERT into date values(date '2022-04-05', 'Tue');
+-- INSERT into date values(date '2022-04-03', 'Sun');
+-- INSERT into date values(date '2022-04-04', 'Mon');
+-- INSERT into date values(date '2022-04-05', 'Tue');
 -- INSERT into date values();
 
 INSERT into employee values(1, 'subba rao', 38, 'pilot', 40000);
@@ -124,45 +124,35 @@ INSERT into tr_comp (tr_no, date, total_coaches, engine_id, total_stations) valu
 -- INSERT into tr_comp values();
 
 insert into tr_coach values( getId(18519, '2022-04-04'), 588, 1);
-INSERT into tr_coach values( getId(18519, '2022-04-04'), 590, 1);
-INSERT into tr_coach values( getId(18519, '2022-04-04'), 591, 2);
-INSERT into tr_coach values( getId(18519, '2022-04-04'), 592, 3);
-INSERT into tr_coach values( getId(18519, '2022-04-04'), 593, 4);
-INSERT into tr_coach values( getId(18519, '2022-04-04'), 594, 5);
-INSERT into tr_coach values( getId(11020, '2022-04-03'), 588, 1);
-INSERT into tr_coach values( getId(11020, '2022-04-03'), 597, 2);
-INSERT into tr_coach values( getId(11020, '2022-04-03'), 598, 3);
-INSERT into tr_coach values( getId(11020, '2022-04-03'), 620, 4);
-INSERT into tr_coach values( getId(11020, '2022-04-03'), 630, 5);
+INSERT into tr_coach values( getId(18519, '2022-04-04'), 590, 2);
+INSERT into tr_coach values( getId(18519, '2022-04-04'), 591, 3);
+INSERT into tr_coach values( getId(18519, '2022-04-04'), 592, 4);
+INSERT into tr_coach values( getId(18519, '2022-04-04'), 593, 5);
+INSERT into tr_coach values( getId(18519, '2022-04-04'), 594, 6);
+INSERT into tr_coach values( getId(11020, '2022-04-03'), 588, 7);
+INSERT into tr_coach values( getId(11020, '2022-04-03'), 597, 8);
+INSERT into tr_coach values( getId(11020, '2022-04-03'), 598, 9);
+INSERT into tr_coach values( getId(11020, '2022-04-03'), 620, 10);
+INSERT into tr_coach values( getId(11020, '2022-04-03'), 630, 11);
 
 -- INSERT into tr_route values(1);
 -- INSERT into tr_route values(2);
 -- INSERT into tr_route values();
 -- INSERT into tr_route values();
 
--- INSERT into route_stations values(1,);
--- INSERT into route_stations values(1,);
--- INSERT into route_stations values(1);
--- INSERT into route_stations values(1);
--- INSERT into route_stations values(1);
--- INSERT into route_stations values(1);
--- INSERT into route_stations values(1);
--- INSERT into route_stations values(1);
--- INSERT into route_stations values(1);
--- INSERT into route_stations values(1);
--- INSERT into route_stations values(1);
--- INSERT into route_stations values(1);
--- INSERT into route_stations values(2);
--- INSERT into route_stations values(2);
--- INSERT into route_stations values(2);
--- INSERT into route_stations values(2);
--- INSERT into route_stations values(2);
--- INSERT into route_stations values(2);
--- INSERT into route_stations values(2);
--- INSERT into route_stations values(2);
--- INSERT into route_stations values(2);
--- INSERT into route_stations values(2);
--- INSERT into route_stations values(2);
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'VSKP', '2022-04-04 06:55:55');
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'PAP', '2022-04-04 07:55:55');
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'SLO', '2022-04-04 10:55:55');
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'RJY', '2022-04-04 13:55:55');
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'TNKU', '2022-04-04 18:55:55');
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'BVRT', '2022-04-04 19:55:55');
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'GDV', '2022-04-04 20:55:55');
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'MLY', '2022-04-04 22:55:55' );
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'VKB', '2022-04-04 23:55:55');
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'KLBG', '2022-04-05 00:55:55');
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'PUNE', '2022-04-05 04:55:55');
+INSERT into route_stations values(getId(18519, '2022-04-04'), 'LTT', '2022-04-05 08:55:55');
+
 
 INSERT into booking values(1, 18519, date '2022-04-04', 590, 34, 'seater', 50, 'general');
 INSERT into booking values(2, 18519, date '2022-04-04', 590, 35, 'seater', 50, 'general');
